@@ -1,0 +1,87 @@
+id: dor-toracica
+titulo: Dor torácica aguda na emergência (suspeita de síndrome coronariana aguda)
+area: cardiologia
+referencia: Diretrizes da SBC (SCA sem e com supra de ST) e ESC 2023 para síndromes coronarianas agudas — revisar a cada atualização
+inicio: dor
+nos:
+  - id: dor
+    tipo: inicio
+    texto: Dor torácica aguda sugestiva de isquemia
+    vai:
+      - {para: ecg}
+  - id: ecg
+    tipo: exame
+    texto: ECG de 12 derivações em até 10 minutos
+    nota: cardio.iamcssst-fisiopatologia-diagnostico-ecg
+    porque: o ECG separa quem precisa de reperfusão imediata (supra de ST) de quem segue a investigação com troponina; cada minuto de atraso na oclusão coronariana é miocárdio perdido
+    erros_comuns: [Dosar troponina e esperar o resultado antes do ECG, Pedir radiografia de tórax como primeiro exame]
+    vai:
+      - {para: supra, se: "supra de ST persistente ou BRE novo/equivalente de oclusão"}
+      - {para: sem-supra, se: "sem supra de ST"}
+  - id: supra
+    tipo: decisao
+    texto: "IAM com supra de ST: angioplastia primária disponível em até 120 minutos?"
+    nota: cardio.iamcssst-estrategias-reperfusao
+    porque: a angioplastia primária é a melhor reperfusão quando chega a tempo; se o atraso passa de 120 minutos, o trombolítico na porta ganha
+    erros_comuns: [Aguardar troponina para confirmar o infarto antes de decidir a reperfusão]
+    vai:
+      - {para: angioplastia, se: "sim (porta-balão ≤ 120 min)"}
+      - {para: tromboliticos, se: "não, e sem contraindicação a trombolítico"}
+  - id: angioplastia
+    tipo: conduta
+    texto: Angioplastia primária, com dupla antiagregação e anticoagulação
+    nota: cardio.iamcssst-estrategias-reperfusao
+    porque: abre a artéria culpada com menos sangramento intracraniano e mais patência que o trombolítico
+    erros_comuns: [Trombolisar mesmo com hemodinâmica disponível a tempo]
+    vai:
+      - {para: alta-supra}
+  - id: tromboliticos
+    tipo: conduta
+    texto: Trombolítico em até 30 minutos da chegada e transferência para cateterismo
+    nota: cardio.iamcssst-terapia-trombolitica
+    porque: a meta porta-agulha é 30 min; depois do trombolítico todos vão para o cateterismo (de resgate se não reperfundiu, eletivo em 2–24 h se reperfundiu)
+    erros_comuns: [Trombolisar e dar alta sem cateterismo]
+    vai:
+      - {para: alta-supra}
+  - id: alta-supra
+    tipo: desfecho
+    texto: Unidade coronariana e prevenção secundária
+    nota: cardio.iamcssst-prevencao-secundaria
+  - id: sem-supra
+    tipo: exame
+    texto: Troponina de alta sensibilidade seriada (0 e 1–2 h) e estratificação de risco
+    nota: cardio.scasst-eletrocardiograma-biomarcadores
+    porque: sem supra, o diagnóstico de infarto depende da curva de troponina, e o risco (instabilidade, GRACE) decide o tempo do cateterismo
+    erros_comuns: [Liberar o paciente com uma troponina normal colhida logo após o início da dor]
+    vai:
+      - {para: muito-alto, se: "instabilidade hemodinâmica ou elétrica, dor refratária, insuficiência cardíaca aguda"}
+      - {para: alto, se: "IAM sem supra confirmado pela troponina, alterações dinâmicas de ST ou GRACE > 140"}
+      - {para: baixo, se: "troponinas negativas e baixo risco"}
+  - id: muito-alto
+    tipo: conduta
+    texto: Cateterismo imediato (em até 2 horas)
+    nota: cardio.scasst-indicacoes-cateterismo-tempo
+    porque: o muito alto risco se comporta como oclusão em curso — esperar é perder músculo e vida
+    erros_comuns: [Cateterismo eletivo em 72 horas]
+    vai:
+      - {para: alta-sem}
+  - id: alto
+    tipo: conduta
+    texto: Cateterismo precoce (em até 24 horas)
+    nota: cardio.scasst-indicacoes-cateterismo-tempo
+    porque: no alto risco a estratégia invasiva precoce reduz eventos isquêmicos recorrentes
+    erros_comuns: [Tratar só com medicação e reavaliar no ambulatório]
+    vai:
+      - {para: alta-sem}
+  - id: baixo
+    tipo: conduta
+    texto: Baixo risco — investigação não invasiva ou ambulatorial e diagnósticos diferenciais
+    nota: cardio.dor-toracica-estratificacao-risco
+    porque: sem infarto e de baixo risco, a prioridade é afastar as outras causas graves (dissecção, TEP, pneumotórax) e provar isquemia de modo não invasivo
+    erros_comuns: [Cateterismo de rotina em todo paciente com dor torácica]
+    vai:
+      - {para: alta-sem}
+  - id: alta-sem
+    tipo: desfecho
+    texto: Tratamento antitrombótico e anti-isquêmico, prevenção secundária
+    nota: cardio.scasst-manejo-antitrombotico

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<title>Integral como área: somas de Riemann</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 10px; font: 13px/1.4 system-ui, sans-serif; color: #1f2937; background: #fff; }
+#controles { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 6px; }
+.ctl { display: flex; align-items: center; gap: 6px; }
+.ctl label { min-width: 2.5em; font-weight: 600; }
+.ctl input[type=range] { width: 150px; }
+.ctl output { min-width: 3.5em; font-variant-numeric: tabular-nums; }
+.ctl select, .ctl button { font: inherit; padding: 2px 6px; }
+canvas { width: 100%; height: auto; border: 1px solid #e5e7eb; border-radius: 6px; display: block; }
+#saida { margin-top: 6px; font-variant-numeric: tabular-nums; }
+#saida b { color: #111827; }
+</style>
+</head>
+<body>
+<div id="controles"></div>
+<canvas id="tela" width="720" height="380"></canvas>
+<div id="saida"></div>
+<script>
+// ── base comum (embutida em cada widget) ──
+var P = (window.lh && lh.parametros) || {};
+var CTL = {};
+function num(v, padrao) { var n = Number(v); return isFinite(n) ? n : padrao; }
+/** Um controle deslizante; o valor inicial vem dos parâmetros do tutor quando houver. */
+function controle(nome, rotulo, min, max, passo, valor, aoMudar) {
+  var div = document.createElement("div"); div.className = "ctl";
+  var lb = document.createElement("label"); lb.textContent = rotulo;
+  var inp = document.createElement("input"); inp.type = "range"; inp.min = min; inp.max = max; inp.step = passo;
+  inp.value = num(P[nome], valor);
+  var out = document.createElement("output");
+  var casas = String(passo).indexOf(".") >= 0 ? String(passo).split(".")[1].length : 0;
+  function mostrar() { out.textContent = Number(inp.value).toFixed(casas); }
+  inp.addEventListener("input", function () { mostrar(); (aoMudar || desenhar)(); });
+  div.appendChild(lb); div.appendChild(inp); div.appendChild(out);
+  document.getElementById("controles").appendChild(div); mostrar();
+  CTL[nome] = { get: function () { return Number(inp.value); }, set: function (v) { inp.value = v; mostrar(); } };
+  return CTL[nome];
+}
+function escolha(nome, rotulo, opcoes, valor, aoMudar) {
+  var div = document.createElement("div"); div.className = "ctl";
+  var lb = document.createElement("label"); lb.textContent = rotulo;
+  var sel = document.createElement("select");
+  opcoes.forEach(function (o) { var op = document.createElement("option"); op.value = o[0]; op.textContent = o[1]; sel.appendChild(op); });
+  sel.value = P[nome] !== undefined ? String(P[nome]) : valor;
+  sel.addEventListener("change", function () { (aoMudar || desenhar)(); });
+  div.appendChild(lb); div.appendChild(sel); document.getElementById("controles").appendChild(div);
+  CTL[nome] = { get: function () { return sel.value; }, set: function (v) { sel.value = v; } };
+  return CTL[nome];
+}
+function botao(rotulo, acao) {
+  var b = document.createElement("button"); b.textContent = rotulo; b.addEventListener("click", acao);
+  var div = document.createElement("div"); div.className = "ctl"; div.appendChild(b);
+  document.getElementById("controles").appendChild(div);
+}
+var tela = document.getElementById("tela"), g = tela.getContext("2d");
+/** Um sistema de eixos sobre o canvas: X(x), Y(y) em pixels. */
+function eixos(xmin, xmax, ymin, ymax, opc) {
+  opc = opc || {};
+  var W = tela.width, H = tela.height, m = 34;
+  var E = {
+    X: function (x) { return m + (x - xmin) / (xmax - xmin) * (W - 2 * m); },
+    Y: function (y) { return H - m - (y - ymin) / (ymax - ymin) * (H - 2 * m); },
+    xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax
+  };
+  g.clearRect(0, 0, W, H);
+  g.strokeStyle = "#f1f5f9"; g.lineWidth = 1; g.fillStyle = "#64748b"; g.font = "11px system-ui";
+  var px = passoBonito((xmax - xmin) / 10), py = passoBonito((ymax - ymin) / 8);
+  for (var x = Math.ceil(xmin / px) * px; x <= xmax; x += px) { linha(E, x, ymin, x, ymax, "#f1f5f9"); g.fillText(fmt(x), E.X(x) - 8, H - m + 14); }
+  for (var y = Math.ceil(ymin / py) * py; y <= ymax; y += py) { linha(E, xmin, y, xmax, y, "#f1f5f9"); g.fillText(fmt(y), 4, E.Y(y) + 4); }
+  if (ymin <= 0 && ymax >= 0) linha(E, xmin, 0, xmax, 0, "#94a3b8");
+  if (xmin <= 0 && xmax >= 0) linha(E, 0, ymin, 0, ymax, "#94a3b8");
+  if (opc.rx) g.fillText(opc.rx, W - m - 40, H - 6);
+  if (opc.ry) g.fillText(opc.ry, m + 4, 12);
+  return E;
+}
+function passoBonito(s) { var p = Math.pow(10, Math.floor(Math.log10(s))); var f = s / p; return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * p; }
+function fmt(v) { return Math.abs(v) < 1e-9 ? "0" : Math.abs(v) >= 1000 || Math.abs(v) < 0.01 ? v.toExponential(0) : String(+v.toFixed(2)); }
+function linha(E, x1, y1, x2, y2, cor, larg) { g.strokeStyle = cor || "#111"; g.lineWidth = larg || 1; g.beginPath(); g.moveTo(E.X(x1), E.Y(y1)); g.lineTo(E.X(x2), E.Y(y2)); g.stroke(); }
+function curva(E, f, cor, larg) {
+  g.strokeStyle = cor || "#2563eb"; g.lineWidth = larg || 2; g.beginPath(); var ok = false;
+  for (var i = 0; i <= 400; i++) { var x = E.xmin + (E.xmax - E.xmin) * i / 400, y = f(x);
+    if (!isFinite(y) || y > E.ymax * 4 + 10 || y < E.ymin * 4 - 10) { ok = false; continue; }
+    if (ok) g.lineTo(E.X(x), E.Y(y)); else g.moveTo(E.X(x), E.Y(y)); ok = true; }
+  g.stroke();
+}
+function ponto(E, x, y, cor, rot) { g.fillStyle = cor || "#dc2626"; g.beginPath(); g.arc(E.X(x), E.Y(y), 4.5, 0, 7); g.fill(); if (rot) { g.fillStyle = "#111"; g.fillText(rot, E.X(x) + 7, E.Y(y) - 7); } }
+function texto(t, x, y, cor) { g.fillStyle = cor || "#111"; g.font = "12px system-ui"; g.fillText(t, x, y); }
+function saida(html) { document.getElementById("saida").innerHTML = html; }
+function enviar(estado) { if (window.lh) lh.enviar(estado); }
+if (window.lh) lh.aoReceber(function (ps) { for (var k in ps) if (CTL[k]) CTL[k].set(ps[k]); if (typeof desenhar === "function" && document.readyState !== "loading") desenhar(); });
+// ── fim da base ──
+
+// Integral como área: somas de Riemann
+var fs = { quad: [function (x) { return x * x; }, function (x) { return x * x * x / 3; }, "x²"], seno: [function (x) { return Math.sin(x) + 1.2; }, function (x) { return -Math.cos(x) + 1.2 * x; }, "sen x + 1,2"], raiz: [function (x) { return Math.sqrt(Math.max(0, x)); }, function (x) { return 2 / 3 * Math.pow(Math.max(0, x), 1.5); }, "√x"] };
+var f = escolha("funcao", "f(x)", [["quad", "x²"], ["seno", "sen x + 1,2"], ["raiz", "√x"]], "quad");
+var a = controle("a", "a", 0, 4, 0.1, 0), b = controle("b", "b", 0.5, 5, 0.1, 3), n = controle("n", "n", 1, 100, 1, 6);
+var modo = escolha("modo", "ponto", [["esq", "esquerda"], ["meio", "meio"], ["dir", "direita"]], "esq");
+function desenhar() {
+  var F = fs[f.get()][0], Fp = fs[f.get()][1], A = a.get(), B = Math.max(A + 0.1, b.get()), N = n.get(), dx = (B - A) / N, s = 0;
+  var E = eixos(-0.5, 5.5, -1, Math.max(3, F(5.5) * 1.1), { rx: "x", ry: "f(x)" });
+  for (var i = 0; i < N; i++) {
+    var xi = A + i * dx, xm = modo.get() === "esq" ? xi : modo.get() === "meio" ? xi + dx / 2 : xi + dx, y = F(xm); s += y * dx;
+    g.fillStyle = "rgba(37,99,235,.18)"; g.strokeStyle = "rgba(37,99,235,.6)";
+    g.fillRect(E.X(xi), E.Y(y), E.X(xi + dx) - E.X(xi), E.Y(0) - E.Y(y)); g.strokeRect(E.X(xi), E.Y(y), E.X(xi + dx) - E.X(xi), E.Y(0) - E.Y(y));
+  }
+  curva(E, F);
+  var exata = Fp(B) - Fp(A);
+  saida("soma de " + N + " retângulos = <b>" + s.toFixed(4) + "</b> · integral exata de " + A + " a " + B.toFixed(1) + " = <b>" + exata.toFixed(4) + "</b> · erro = " + (s - exata).toFixed(4));
+  enviar({ funcao: f.get(), a: A, b: B, n: N, modo: modo.get(), soma: +s.toFixed(5), exata: +exata.toFixed(5), erro: +(s - exata).toFixed(5) });
+}
+desenhar();
+
+</script>
+</body>
+</html>

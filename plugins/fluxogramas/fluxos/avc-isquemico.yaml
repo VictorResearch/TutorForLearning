@@ -1,0 +1,69 @@
+id: avc-isquemico
+titulo: AVC isquêmico agudo — da porta à reperfusão
+area: neurologia
+referencia: AHA/ASA 2019 (atualização) e diretrizes brasileiras de AVC agudo — revisar a cada atualização
+inicio: deficit
+nos:
+  - id: deficit
+    tipo: inicio
+    texto: Déficit neurológico focal súbito
+    vai:
+      - {para: glicemia}
+  - id: glicemia
+    tipo: exame
+    texto: Glicemia capilar, sinais vitais, NIHSS e horário em que foi visto bem pela última vez
+    nota: neuro.avci-atendimento-inicial-protocolo
+    porque: hipoglicemia imita AVC e se corrige na hora; o horário do último momento visto bem define a janela de cada terapia
+    erros_comuns: [Baixar a pressão para menos de 140 antes da tomografia, Pedir ressonância antes de qualquer imagem]
+    vai:
+      - {para: tc}
+  - id: tc
+    tipo: exame
+    texto: Tomografia de crânio sem contraste (e angiotomografia) imediata
+    nota: neuro.avc-neuroimagem-tc-rm
+    porque: a TC sem contraste afasta hemorragia, que contraindica trombolítico; a angiotomografia procura oclusão de grande vaso para trombectomia
+    erros_comuns: [Trombolisar sem imagem porque o quadro é típico]
+    vai:
+      - {para: hemorragia, se: "sangramento na TC"}
+      - {para: janela, se: "sem sangramento"}
+  - id: hemorragia
+    tipo: desfecho
+    texto: Conduzir como AVC hemorrágico (controle pressórico, reverter anticoagulação)
+    nota: neuro.avch-intraparenquimatoso-fisiopatologia-manejo
+  - id: janela
+    tipo: decisao
+    texto: "Até 4,5 h do último momento visto bem e sem contraindicação?"
+    nota: neuro.avci-reperfusao-trombolise-trombectomia
+    porque: o benefício do trombolítico cai com o tempo e, depois de 4,5 h (sem imagem de penumbra), o risco de sangramento supera o ganho
+    erros_comuns: [Trombolisar até 24 horas para qualquer paciente]
+    vai:
+      - {para: trombolise, se: "sim"}
+      - {para: grande-vaso, se: "não (fora da janela ou contraindicado)"}
+  - id: trombolise
+    tipo: conduta
+    texto: Trombolítico intravenoso (alteplase ou tenecteplase), com PA abaixo de 185/110 mmHg
+    nota: neuro.avci-reperfusao-trombolise-trombectomia
+    porque: pressão acima de 185/110 aumenta o risco de transformação hemorrágica; por isso se baixa a PA antes de trombolisar
+    erros_comuns: [Trombolisar com PA de 200/120 sem tratar antes]
+    vai:
+      - {para: grande-vaso}
+  - id: grande-vaso
+    tipo: decisao
+    texto: "Oclusão de grande vaso da circulação anterior na angiotomografia?"
+    nota: neuro.avci-reperfusao-trombolise-trombectomia
+    porque: a trombectomia mecânica é a terapia de maior benefício na oclusão proximal; o trombolítico não a substitui nem a adia
+    erros_comuns: [Esperar o efeito do trombolítico antes de indicar a trombectomia]
+    vai:
+      - {para: trombectomia, se: "sim, até 6 h (ou 6–24 h com penumbra na imagem)"}
+      - {para: unidade, se: "não"}
+  - id: trombectomia
+    tipo: conduta
+    texto: Trombectomia mecânica
+    nota: neuro.avci-reperfusao-trombolise-trombectomia
+    porque: a retirada do trombo proximal recupera a penumbra que o trombolítico sozinho raramente abre
+    vai:
+      - {para: unidade}
+  - id: unidade
+    tipo: desfecho
+    texto: Unidade de AVC, investigação etiológica e prevenção secundária
+    nota: neuro.avci-investigacao-profilaxia-secundaria

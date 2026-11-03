@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<title>Reta y = a·x + b</title>
+<style>
+  body { margin: 0; padding: 10px; font: 13px system-ui, sans-serif; }
+  label { margin-right: 12px; }
+  svg { width: 100%; height: 300px; border: 1px solid #e5e7eb; border-radius: 6px; }
+</style>
+</head>
+<body>
+<label>a <input id="a" type="range" min="-3" max="3" step="0.1"></label>
+<label>b <input id="b" type="range" min="-5" max="5" step="0.1"></label>
+<span id="saida"></span>
+<svg viewBox="-10 -10 20 20" preserveAspectRatio="none">
+  <line x1="-10" y1="0" x2="10" y2="0" stroke="#94a3b8" stroke-width="0.05"/>
+  <line x1="0" y1="-10" x2="0" y2="10" stroke="#94a3b8" stroke-width="0.05"/>
+  <line id="reta" stroke="#2563eb" stroke-width="0.15"/>
+</svg>
+<script>
+  // window.lh é injetado pelo app: parametros, aoReceber, enviar.
+  var A = document.getElementById("a"), B = document.getElementById("b");
+  function desenhar() {
+    var a = Number(A.value), b = Number(B.value);
+    var r = document.getElementById("reta");
+    // y para cima: o SVG tem y para baixo, por isso o sinal trocado
+    r.setAttribute("x1", -10); r.setAttribute("y1", -(a * -10 + b));
+    r.setAttribute("x2", 10); r.setAttribute("y2", -(a * 10 + b));
+    var raiz = a !== 0 ? -b / a : null;
+    document.getElementById("saida").textContent = "y = " + a + "x + " + b + (raiz !== null ? " · corta o eixo x em " + raiz.toFixed(2) : "");
+    lh.enviar({ a: a, b: b, raiz: raiz === null ? null : +raiz.toFixed(4) });
+  }
+  lh.aoReceber(function (p) { if (p.a !== undefined) A.value = p.a; if (p.b !== undefined) B.value = p.b; desenhar(); });
+  A.addEventListener("input", desenhar); B.addEventListener("input", desenhar);
+</script>
+</body>
+</html>

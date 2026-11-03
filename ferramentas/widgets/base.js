@@ -1,0 +1,72 @@
+// ── base comum (embutida em cada widget) ──
+var P = (window.lh && lh.parametros) || {};
+var CTL = {};
+function num(v, padrao) { var n = Number(v); return isFinite(n) ? n : padrao; }
+/** Um controle deslizante; o valor inicial vem dos parâmetros do tutor quando houver. */
+function controle(nome, rotulo, min, max, passo, valor, aoMudar) {
+  var div = document.createElement("div"); div.className = "ctl";
+  var lb = document.createElement("label"); lb.textContent = rotulo;
+  var inp = document.createElement("input"); inp.type = "range"; inp.min = min; inp.max = max; inp.step = passo;
+  inp.value = num(P[nome], valor);
+  var out = document.createElement("output");
+  var casas = String(passo).indexOf(".") >= 0 ? String(passo).split(".")[1].length : 0;
+  function mostrar() { out.textContent = Number(inp.value).toFixed(casas); }
+  inp.addEventListener("input", function () { mostrar(); (aoMudar || desenhar)(); });
+  div.appendChild(lb); div.appendChild(inp); div.appendChild(out);
+  document.getElementById("controles").appendChild(div); mostrar();
+  CTL[nome] = { get: function () { return Number(inp.value); }, set: function (v) { inp.value = v; mostrar(); } };
+  return CTL[nome];
+}
+function escolha(nome, rotulo, opcoes, valor, aoMudar) {
+  var div = document.createElement("div"); div.className = "ctl";
+  var lb = document.createElement("label"); lb.textContent = rotulo;
+  var sel = document.createElement("select");
+  opcoes.forEach(function (o) { var op = document.createElement("option"); op.value = o[0]; op.textContent = o[1]; sel.appendChild(op); });
+  sel.value = P[nome] !== undefined ? String(P[nome]) : valor;
+  sel.addEventListener("change", function () { (aoMudar || desenhar)(); });
+  div.appendChild(lb); div.appendChild(sel); document.getElementById("controles").appendChild(div);
+  CTL[nome] = { get: function () { return sel.value; }, set: function (v) { sel.value = v; } };
+  return CTL[nome];
+}
+function botao(rotulo, acao) {
+  var b = document.createElement("button"); b.textContent = rotulo; b.addEventListener("click", acao);
+  var div = document.createElement("div"); div.className = "ctl"; div.appendChild(b);
+  document.getElementById("controles").appendChild(div);
+}
+var tela = document.getElementById("tela"), g = tela.getContext("2d");
+/** Um sistema de eixos sobre o canvas: X(x), Y(y) em pixels. */
+function eixos(xmin, xmax, ymin, ymax, opc) {
+  opc = opc || {};
+  var W = tela.width, H = tela.height, m = 34;
+  var E = {
+    X: function (x) { return m + (x - xmin) / (xmax - xmin) * (W - 2 * m); },
+    Y: function (y) { return H - m - (y - ymin) / (ymax - ymin) * (H - 2 * m); },
+    xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax
+  };
+  g.clearRect(0, 0, W, H);
+  g.strokeStyle = "#f1f5f9"; g.lineWidth = 1; g.fillStyle = "#64748b"; g.font = "11px system-ui";
+  var px = passoBonito((xmax - xmin) / 10), py = passoBonito((ymax - ymin) / 8);
+  for (var x = Math.ceil(xmin / px) * px; x <= xmax; x += px) { linha(E, x, ymin, x, ymax, "#f1f5f9"); g.fillText(fmt(x), E.X(x) - 8, H - m + 14); }
+  for (var y = Math.ceil(ymin / py) * py; y <= ymax; y += py) { linha(E, xmin, y, xmax, y, "#f1f5f9"); g.fillText(fmt(y), 4, E.Y(y) + 4); }
+  if (ymin <= 0 && ymax >= 0) linha(E, xmin, 0, xmax, 0, "#94a3b8");
+  if (xmin <= 0 && xmax >= 0) linha(E, 0, ymin, 0, ymax, "#94a3b8");
+  if (opc.rx) g.fillText(opc.rx, W - m - 40, H - 6);
+  if (opc.ry) g.fillText(opc.ry, m + 4, 12);
+  return E;
+}
+function passoBonito(s) { var p = Math.pow(10, Math.floor(Math.log10(s))); var f = s / p; return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * p; }
+function fmt(v) { return Math.abs(v) < 1e-9 ? "0" : Math.abs(v) >= 1000 || Math.abs(v) < 0.01 ? v.toExponential(0) : String(+v.toFixed(2)); }
+function linha(E, x1, y1, x2, y2, cor, larg) { g.strokeStyle = cor || "#111"; g.lineWidth = larg || 1; g.beginPath(); g.moveTo(E.X(x1), E.Y(y1)); g.lineTo(E.X(x2), E.Y(y2)); g.stroke(); }
+function curva(E, f, cor, larg) {
+  g.strokeStyle = cor || "#2563eb"; g.lineWidth = larg || 2; g.beginPath(); var ok = false;
+  for (var i = 0; i <= 400; i++) { var x = E.xmin + (E.xmax - E.xmin) * i / 400, y = f(x);
+    if (!isFinite(y) || y > E.ymax * 4 + 10 || y < E.ymin * 4 - 10) { ok = false; continue; }
+    if (ok) g.lineTo(E.X(x), E.Y(y)); else g.moveTo(E.X(x), E.Y(y)); ok = true; }
+  g.stroke();
+}
+function ponto(E, x, y, cor, rot) { g.fillStyle = cor || "#dc2626"; g.beginPath(); g.arc(E.X(x), E.Y(y), 4.5, 0, 7); g.fill(); if (rot) { g.fillStyle = "#111"; g.fillText(rot, E.X(x) + 7, E.Y(y) - 7); } }
+function texto(t, x, y, cor) { g.fillStyle = cor || "#111"; g.font = "12px system-ui"; g.fillText(t, x, y); }
+function saida(html) { document.getElementById("saida").innerHTML = html; }
+function enviar(estado) { if (window.lh) lh.enviar(estado); }
+if (window.lh) lh.aoReceber(function (ps) { for (var k in ps) if (CTL[k]) CTL[k].set(ps[k]); if (typeof desenhar === "function" && document.readyState !== "loading") desenhar(); });
+// ── fim da base ──

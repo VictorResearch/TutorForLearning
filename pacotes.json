@@ -1,0 +1,14 @@
+[
+	{
+		"tipo": "pacote-dados",
+		"id": "anatomia-base",
+		"nome": "Anatomia base — cérebro, corpo e neurônios",
+		"versao": "1.0.0",
+		"descricao": "Modelos 3D usados pelo plugin anatomia-3d: cérebro (Brainder/FreeSurfer), corpo inteiro (BodyParts3D) e neurônios (NeuroMorpho). O plugin baixa sozinho.",
+		"licenca": "CC BY 4.0 (BodyParts3D, NeuroMorpho) e CC BY-SA 3.0 (Brainder)",
+		"plugin": "anatomia-3d",
+		"url": "https://github.com/VictorResearch/TutorForLearning/releases/download/anatomia-base-1.0.0/anatomia-base-1.0.0.zip",
+		"sha256": "57fc38320583ed62a11eec600c8bbf43d3d8905c582e6e748cb00cefab38ec90",
+		"tamanhoMB": 151
+	}
+]

@@ -1,0 +1,89 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/VictorResearch/TutorForLearning/main/kit/plugin.schema.json",
+	"title": "plugin.json — contrato de plugin v2 do LearnHarness (TutorForLearning)",
+	"description": "O manifesto de um plugin. Um plugin é uma PASTA com este plugin.json e os arquivos que ele cita: texto, dados e widgets .html (nada executável). O verificador (kit/lh-plugin.mjs verificar) é a palavra final; este esquema ajuda o editor a completar campos.",
+	"type": "object",
+	"required": ["id", "name", "version", "description", "esquema"],
+	"properties": {
+		"id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,40}$", "description": "Identificador estável: minúsculas, dígitos e hífens." },
+		"name": { "type": "string", "minLength": 1 },
+		"version": { "type": "string", "description": "Versão do plugin (semver: 1.0.0). Toda mudança publicada sobe a versão." },
+		"description": { "type": "string", "minLength": 1, "description": "O que o plugin faz, em uma ou duas frases, para quem vai instalar." },
+		"esquema": { "const": 2, "description": "Versão do contrato. O app recusa contratos mais novos do que entende." },
+		"app": { "type": "string", "description": "Faixa de versões do app, ex.: \">=0.4 <1\". Use o mínimo que tem todos os recursos que você usa (fluxogramas e interativos: >=0.4)." },
+		"dependencias": { "type": "object", "additionalProperties": { "type": "string" }, "description": "Outros plugins necessários: id → faixa (ex.: {\"interativos-ciencias\": \"^1.0\"})." },
+		"conflitos": { "type": "array", "items": { "type": "string" }, "description": "Ids de plugins que não podem ficar ligados junto." },
+		"permissoes": {
+			"type": "object",
+			"properties": {
+				"microfone": { "type": "boolean" },
+				"interativos": { "type": "boolean", "description": "Obrigatório para ter widgets." },
+				"baixar": { "type": "array", "items": { "type": "string" }, "description": "Hosts dos pacotes de dados (só https + sha256), ex.: [\"github.com\"]." },
+				"nuvem": { "type": "boolean", "description": "Usa as salas de estudo." }
+			},
+			"additionalProperties": false
+		},
+		"licenca": { "type": "string", "description": "Licença do conteúdo do plugin, ex.: CC-BY-SA-4.0." },
+		"autores": { "type": "array", "items": { "type": "string" } },
+		"repositorio": { "type": "string", "pattern": "^https://" },
+		"prompts": {
+			"type": "object",
+			"description": "Fragmentos de prompt (arquivos .md relativos) por agente, compostos na ordem.",
+			"properties": {
+				"prober": { "type": "array", "items": { "type": "string" }, "description": "Agente que sonda o que o estudante já sabe." },
+				"teacher": { "type": "array", "items": { "type": "string" }, "description": "Agente que ensina." },
+				"practice": { "type": "array", "items": { "type": "string" }, "description": "Agente de prática, revisão e casos." }
+			},
+			"additionalProperties": false
+		},
+		"base": { "type": "object", "required": ["path"], "properties": { "path": { "type": "string" }, "description": { "type": "string" } }, "description": "Banco de notas que os agentes leem. Em outro computador o app usa o banco em uso do perfil." },
+		"memory": { "type": "object", "required": ["enabled"], "properties": { "enabled": { "type": "boolean" }, "doctrine": { "type": "string" } }, "description": "Memória do estudante: o tutor registra evidências; doctrine ensina quando e como." },
+		"cases": { "type": "object", "required": ["enabled"], "properties": { "enabled": { "type": "boolean" }, "doctrine": { "type": "string" } } },
+		"voz": { "type": "object", "required": ["enabled"], "properties": { "enabled": { "type": "boolean" }, "vozes": { "type": "array", "items": { "type": "string" } } } },
+		"anatomia": {
+			"type": "object",
+			"required": ["enabled"],
+			"properties": {
+				"enabled": { "type": "boolean" },
+				"pacotes": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": ["id", "nome", "versao"],
+						"properties": { "id": { "type": "string" }, "nome": { "type": "string" }, "versao": { "type": "string" }, "url": { "type": "string", "pattern": "^https://" }, "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }, "tamanhoMB": { "type": "number" }, "padrao": { "type": "boolean" } }
+					}
+				}
+			}
+		},
+		"fluxogramas": {
+			"type": "object",
+			"required": ["enabled", "arquivos"],
+			"properties": { "enabled": { "type": "boolean" }, "arquivos": { "type": "array", "items": { "type": "string", "pattern": "\\.ya?ml$" } } },
+			"description": "Algoritmos clínicos em YAML (veja plugins/fluxogramas/fluxos/)."
+		},
+		"interativos": {
+			"type": "object",
+			"required": ["enabled", "widgets"],
+			"properties": {
+				"enabled": { "type": "boolean" },
+				"widgets": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": ["id", "nome", "arquivo"],
+						"properties": {
+							"id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,40}$" },
+							"nome": { "type": "string" },
+							"arquivo": { "type": "string", "pattern": "\\.html?$" },
+							"descricao": { "type": "string", "description": "O que mostra e QUAIS CAMPOS o estado devolve (o tutor corrige por eles)." },
+							"bibliotecas": { "type": "array", "items": { "enum": ["d3"] } },
+							"parametros": { "type": "object", "additionalProperties": { "type": ["number", "string", "boolean"] } },
+							"area": { "type": "string" }
+						}
+					}
+				}
+			}
+		}
+	}
+}

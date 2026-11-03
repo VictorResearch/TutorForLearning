@@ -1,0 +1,29 @@
+name: Verificar plugins
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verificador (o mesmo do app)
+        run: node kit/lh-plugin.mjs verificar plugins kit/plugin-modelo --registro plugins
+      - name: Widgets gerados estão atualizados
+        run: |
+          node ferramentas/widgets/gerar.mjs
+          node ferramentas/areas/gerar.mjs
+          git diff --exit-code -- plugins || (echo "Rode node ferramentas/widgets/gerar.mjs e node ferramentas/areas/gerar.mjs e faça commit" && exit 1)
+      - name: Registro atualizado
+        run: |
+          node kit/lh-plugin.mjs registro plugins --saida /tmp/registro.json --base https://raw.githubusercontent.com/${{ github.repository }}/main/ --pacotes pacotes.json
+          node -e "const a=require('/tmp/registro.json'),b=require('./registro.json');delete a.atualizado;delete b.atualizado;if(JSON.stringify(a)!==JSON.stringify(b)){console.error('registro.json desatualizado: rode node kit/lh-plugin.mjs registro plugins --saida registro.json --base https://raw.githubusercontent.com/VictorResearch/TutorForLearning/main/ --pacotes pacotes.json');process.exit(1)}"

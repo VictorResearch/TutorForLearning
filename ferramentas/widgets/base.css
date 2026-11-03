@@ -1,0 +1,11 @@
+* { box-sizing: border-box; }
+body { margin: 0; padding: 10px; font: 13px/1.4 system-ui, sans-serif; color: #1f2937; background: #fff; }
+#controles { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 6px; }
+.ctl { display: flex; align-items: center; gap: 6px; }
+.ctl label { min-width: 2.5em; font-weight: 600; }
+.ctl input[type=range] { width: 150px; }
+.ctl output { min-width: 3.5em; font-variant-numeric: tabular-nums; }
+.ctl select, .ctl button { font: inherit; padding: 2px 6px; }
+canvas { width: 100%; height: auto; border: 1px solid #e5e7eb; border-radius: 6px; display: block; }
+#saida { margin-top: 6px; font-variant-numeric: tabular-nums; }
+#saida b { color: #111827; }

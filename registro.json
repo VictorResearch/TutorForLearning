@@ -1,0 +1,561 @@
+{
+	"formato": "lh-registro",
+	"esquema": 1,
+	"atualizado": "2026-11-03",
+	"base": "https://raw.githubusercontent.com/VictorResearch/TutorForLearning/main/",
+	"entradas": [
+		{
+			"tipo": "plugin",
+			"id": "anatomia-3d",
+			"nome": "Anatomia 3D",
+			"versao": "1.0.0",
+			"descricao": "Modelos 3D interativos: cérebro (giros, lobos, áreas funcionais, núcleos da base, ventrículos), corpo inteiro (artérias — polígono de Willis ramo a ramo —, nervos, órgãos, ossos) e neurônios reais. Sozinho, é um atlas para girar, cortar e anotar (menu Anatomia 3D); com o plugin de medicina, o tutor mostra os modelos na aula com setas, rótulos e cortes. Novos pacotes de modelos podem ser instalados e atualizados.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0 (texto); modelos: CC BY 4.0 (BodyParts3D, NeuroMorpho) e CC BY-SA 3.0 (Brainder)",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"recursos": [
+				"prompts",
+				"anatomia"
+			],
+			"caminho": "plugins/anatomia-3d",
+			"arquivos": [
+				{
+					"caminho": "lh/ensino-anatomia.md",
+					"tamanho": 2074,
+					"sha256": "f3eae4d6a455e2758cf74882620f10d72a8a3c4e1a85886a74965d3bbf713348"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 1397,
+					"sha256": "0c4cea065379d86551eb01492b9200da880c118b9b73c5ee01f993173da9773f"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "biologia",
+			"nome": "Biologia",
+			"versao": "1.0.0",
+			"descricao": "Biologia do ensino médio (célula, genética, evolução, fisiologia, ecologia) pela função e pela evolução: para que serve, como surgiu. Interativos de Punnett, mitose e Frank-Starling.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"dependencias": {
+				"interativos-ciencias": "^1.0"
+			},
+			"recursos": [
+				"prompts",
+				"memory"
+			],
+			"caminho": "plugins/biologia",
+			"arquivos": [
+				{
+					"caminho": "lh/didatica.md",
+					"tamanho": 1511,
+					"sha256": "96da5df335f8bfbe9f6781dc5893630e10a1aaa426c7dbad1b050211f0728dec"
+				},
+				{
+					"caminho": "lh/memoria.md",
+					"tamanho": 1379,
+					"sha256": "720fd5c4c93add5686ff9b22c220ab34501b943fa2b383f6811a0af018a2c346"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 743,
+					"sha256": "f737b2fc9414f36fbe0c8139c750e69d610e807b0f63a06cfa9e6a3601521d93"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "fisica",
+			"nome": "Física",
+			"versao": "1.0.0",
+			"descricao": "Física do ensino médio (mecânica, energia, ondas, óptica, eletricidade, termodinâmica) pelo modelo: o que entra, o que conserva, o que muda. Interativos de plano inclinado, colisões e lentes.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"dependencias": {
+				"interativos-ciencias": "^1.0"
+			},
+			"recursos": [
+				"prompts",
+				"memory"
+			],
+			"caminho": "plugins/fisica",
+			"arquivos": [
+				{
+					"caminho": "lh/didatica.md",
+					"tamanho": 1535,
+					"sha256": "0c99df23c1b91472d9dedede130a412054973bcee2e8a16e70223fb29e92d577"
+				},
+				{
+					"caminho": "lh/memoria.md",
+					"tamanho": 1379,
+					"sha256": "720fd5c4c93add5686ff9b22c220ab34501b943fa2b383f6811a0af018a2c346"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 746,
+					"sha256": "fbed782f9fab17a0e22a127e68e78c38dde176a6e072152d568794870134af65"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "fluxogramas",
+			"nome": "Fluxogramas clínicos",
+			"versao": "1.0.0",
+			"descricao": "Algoritmos de conduta estudados por recordação livre: você escreve o fluxograma de cabeça, o app compara passo a passo, faz questões só dos ramos que faltaram e pergunta o porquê de cada passo. Cada passo vira item de revisão espaçada. Traz dor torácica aguda, AVC isquêmico agudo e sepse; novos fluxogramas são arquivos YAML.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"recursos": [
+				"prompts",
+				"fluxogramas"
+			],
+			"caminho": "plugins/fluxogramas",
+			"arquivos": [
+				{
+					"caminho": "fluxos/avc-isquemico.yaml",
+					"tamanho": 3352,
+					"sha256": "a92c0422ab4e6cd5e1deb32ad1a2f382467241f79556a20c5355c94b3f41f762"
+				},
+				{
+					"caminho": "fluxos/dor-toracica.yaml",
+					"tamanho": 4635,
+					"sha256": "3a2b92185ab737b1a4c9d8744c77c4c16b9457d2ab70218e3a81412688baacd8"
+				},
+				{
+					"caminho": "fluxos/sepse.yaml",
+					"tamanho": 2855,
+					"sha256": "f5ba451798115dac83627ae231814f02effa54188c1078ea7b7e99e6c34253de"
+				},
+				{
+					"caminho": "lh/fluxogramas.md",
+					"tamanho": 1557,
+					"sha256": "7f9ad294838e760ea9f2d7bf893bb93dc4c0667ef46f0c9fcd3fe3f3f2d2f8e0"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 864,
+					"sha256": "62e32a0feffe67f6aba0d3628cbcaa266b6894e8ace3af076f66be8a3b6f4668"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "interativos-ciencias",
+			"nome": "Interativos de ciências",
+			"versao": "1.0.0",
+			"descricao": "Biblioteca de interativos (estilo Brilliant): parábola, derivada e tangente, integral como área, amostragem e intervalo de confiança, regressão, plano inclinado, colisões, lentes, titulação, quadro de Punnett, mitose e Frank-Starling. O tutor usa cada um com um desafio e corrige pelo estado do interativo. Rodam numa caixa de areia: sem rede, sem acesso ao seu computador.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"recursos": [
+				"prompts",
+				"interativos"
+			],
+			"caminho": "plugins/interativos-ciencias",
+			"arquivos": [
+				{
+					"caminho": "lh/interativos.md",
+					"tamanho": 1786,
+					"sha256": "ca612fb2616617750d212d238093e4ee138c286e7154cdb21f71aad1ee1d4b5e"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 4500,
+					"sha256": "0e0d4d3329c24424adddb14b2293a342ae133039d5a7e957864f4ddff22da43d"
+				},
+				{
+					"caminho": "widgets/amostragem-ic.html",
+					"tamanho": 7847,
+					"sha256": "31d12d598ae8bc80e939729ce5823382d6f3af231b646dc5b776a212d0601055"
+				},
+				{
+					"caminho": "widgets/colisoes.html",
+					"tamanho": 7546,
+					"sha256": "01742f6884500af9687355f510bdce2ae90342211ff6ea108bd97a3abc70ffd4"
+				},
+				{
+					"caminho": "widgets/derivada-tangente.html",
+					"tamanho": 7275,
+					"sha256": "b2e19e4b4d5a04a940744ed5a1d71cc98ceb14351c0ad8e1207d4539c3e7d277"
+				},
+				{
+					"caminho": "widgets/frank-starling.html",
+					"tamanho": 7187,
+					"sha256": "d964516bb178675a56a47c0ae8f570ba1f2f252af4b3682a06aa9798c0e85cbc"
+				},
+				{
+					"caminho": "widgets/funcao-quadratica.html",
+					"tamanho": 7431,
+					"sha256": "26c714e25b9a999c5be8bb63ed35b8cd2e5ad8478f06d133266ece2b23c643aa"
+				},
+				{
+					"caminho": "widgets/integral-area.html",
+					"tamanho": 7695,
+					"sha256": "da710267af63357e64cfd3f724b687cb819dd9c70fc2b798419fff7d1edd987a"
+				},
+				{
+					"caminho": "widgets/lente-convergente.html",
+					"tamanho": 7247,
+					"sha256": "3ce04d04f3171fc782249e03b61cf25f1a9efefbc9b315106a70f7f586549200"
+				},
+				{
+					"caminho": "widgets/mitose.html",
+					"tamanho": 8761,
+					"sha256": "0ff070bc941e654fc567e0a92f56a0f853e914b7d3ba4f974035b55fb29613f9"
+				},
+				{
+					"caminho": "widgets/plano-inclinado.html",
+					"tamanho": 8167,
+					"sha256": "9ae9a028ff75475cbdcca00348d0cdfdec3e01352b9eea9e0eb8fbd4464e045f"
+				},
+				{
+					"caminho": "widgets/punnett.html",
+					"tamanho": 7532,
+					"sha256": "bd63c6acaf260c185087288f563bec7fa4ad8b7a047bd48425b0bf2978ce5e60"
+				},
+				{
+					"caminho": "widgets/regressao-linear.html",
+					"tamanho": 7528,
+					"sha256": "fe794cd75780e1b0692a7e021141b82e4a4029f8fe1e40be102934e25bf7f2da"
+				},
+				{
+					"caminho": "widgets/titulacao.html",
+					"tamanho": 7097,
+					"sha256": "04f7da74d69d9dc2daeb3d372f2a3688237f9e0f6b12ea60e5417f53429328c0"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "matematica",
+			"nome": "Matemática",
+			"versao": "1.0.0",
+			"descricao": "Matemática do ensino médio ao início da faculdade (funções, geometria, trigonometria, probabilidade, cálculo) ensinada pelo porquê: prever, mexer no interativo, explicar. Usa as suas notas, os interativos de ciências e a revisão espaçada.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"dependencias": {
+				"interativos-ciencias": "^1.0"
+			},
+			"recursos": [
+				"prompts",
+				"memory"
+			],
+			"caminho": "plugins/matematica",
+			"arquivos": [
+				{
+					"caminho": "lh/didatica.md",
+					"tamanho": 2186,
+					"sha256": "352887fab7db42db4bfae9f43d6d20321befd4a33b40afafac2424f4467fb0a6"
+				},
+				{
+					"caminho": "lh/memoria.md",
+					"tamanho": 1379,
+					"sha256": "720fd5c4c93add5686ff9b22c220ab34501b943fa2b383f6811a0af018a2c346"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 805,
+					"sha256": "f97c5229046d156a0becd7a45ae59bd2d6c331faec756e676218b43086d68719"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "medicina",
+			"nome": "Medicina",
+			"versao": "1.0.0",
+			"descricao": "Estudo de medicina das bases à clínica: didática pela espinha causal (do mecanismo à conduta), recordação livre antes de ensinar, memória do estudante entre sessões, revisão por tópico e casos clínicos. Funciona com o banco de notas que você usar (o seu, o de um amigo ou um importado).",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"recursos": [
+				"prompts",
+				"memory",
+				"cases"
+			],
+			"caminho": "plugins/medicina",
+			"arquivos": [
+				{
+					"caminho": "didatica.md",
+					"tamanho": 3779,
+					"sha256": "34ec0a8c2a0423bc08b79c520e0480f84ec9211b496f6c6006d22351bfd9bfbe"
+				},
+				{
+					"caminho": "lh/casos.md",
+					"tamanho": 4234,
+					"sha256": "ce0666de29940f99fdfe04e27e65b2717403a93143fad8c5c56769e3f240b190"
+				},
+				{
+					"caminho": "lh/ensino.md",
+					"tamanho": 3895,
+					"sha256": "f3a3891770d8a5e85bb1f8b827c01562c9292f180f7ff864da34a08a95937df7"
+				},
+				{
+					"caminho": "lh/memoria.md",
+					"tamanho": 2062,
+					"sha256": "d3edbccb70adbcafd7d86a60a1c19453d2a7352b2d11c211dedac91a2d35f3f7"
+				},
+				{
+					"caminho": "lh/sondagem.md",
+					"tamanho": 2496,
+					"sha256": "8eee42c68c0f3bcf12eebb36a3c8741159718176d30a265c7337ae827b303493"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 888,
+					"sha256": "64477d6983d8c44b9a2b7d2fcaaa7a4f583c6bd99a5f8ce914b4dcc695f0413d"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "programacao",
+			"nome": "Programação",
+			"versao": "1.0.0",
+			"descricao": "Lógica e programação (JavaScript e Python) com exercícios que rodam numa caixa de areia dentro do app, corrigidos por testes, e comentário do tutor sobre a diferença para uma solução de referência.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"recursos": [
+				"prompts",
+				"memory"
+			],
+			"caminho": "plugins/programacao",
+			"arquivos": [
+				{
+					"caminho": "lh/didatica.md",
+					"tamanho": 921,
+					"sha256": "ca3f232d135666f4a32824228d731c023edb1bfd041550e353ca62bd64e9c32f"
+				},
+				{
+					"caminho": "lh/memoria.md",
+					"tamanho": 1379,
+					"sha256": "720fd5c4c93add5686ff9b22c220ab34501b943fa2b383f6811a0af018a2c346"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 710,
+					"sha256": "46048cf185213b9cdf2921f5c14b303235ce4e516fe2bbb17b4ea5d0cc6db0ba"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "quimica",
+			"nome": "Química",
+			"versao": "1.0.0",
+			"descricao": "Química do ensino médio (estrutura, ligações, estequiometria, soluções, equilíbrio, ácido-base, orgânica) do nível das partículas ao laboratório. Interativo de titulação.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"dependencias": {
+				"interativos-ciencias": "^1.0"
+			},
+			"recursos": [
+				"prompts",
+				"memory"
+			],
+			"caminho": "plugins/quimica",
+			"arquivos": [
+				{
+					"caminho": "lh/didatica.md",
+					"tamanho": 1012,
+					"sha256": "56314927daaeade620a3e018506c96f09d8f7d7c8b14667be90707ead8797d07"
+				},
+				{
+					"caminho": "lh/memoria.md",
+					"tamanho": 1379,
+					"sha256": "720fd5c4c93add5686ff9b22c220ab34501b943fa2b383f6811a0af018a2c346"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 735,
+					"sha256": "abf96725310fa23f810d285ca967dd108460266c00a673f785e43cf97371bf96"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "vestibular",
+			"nome": "Vestibular e ENEM",
+			"versao": "1.0.0",
+			"descricao": "Preparação para o ENEM e vestibulares: competências e habilidades da matriz do ENEM, leitura de enunciado, interpretação de gráficos e textos, redação. Combina com os plugins de cada matéria e com o módulo de provas e cronograma do app.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"dependencias": {
+				"interativos-ciencias": "^1.0"
+			},
+			"recursos": [
+				"prompts",
+				"memory"
+			],
+			"caminho": "plugins/vestibular",
+			"arquivos": [
+				{
+					"caminho": "lh/didatica.md",
+					"tamanho": 1895,
+					"sha256": "5eb87c169f2e8133051f5e5b86b3bd12e624f5db14327f0152b86f87ec72f0c8"
+				},
+				{
+					"caminho": "lh/memoria.md",
+					"tamanho": 1379,
+					"sha256": "720fd5c4c93add5686ff9b22c220ab34501b943fa2b383f6811a0af018a2c346"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 809,
+					"sha256": "019b6ebd84bb56ad7ac94510ab2a7541d7c97436f0e11ff95a71be23a7ff9a63"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
+			"id": "voz",
+			"nome": "Voz do tutor",
+			"versao": "1.0.0",
+			"descricao": "O tutor lê as respostas em voz alta. Local e grátis com o Piper (o app baixa o programa e as vozes na primeira vez, ~25 MB + 63 MB por voz) ou por API (OpenAI, Google Cloud, ElevenLabs, Azure — a chave vai em Providers). Ajuste velocidade, tom, expressividade e o jeito de falar do tutor.",
+			"app": ">=0.4 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"recursos": [
+				"voz"
+			],
+			"caminho": "plugins/voz",
+			"arquivos": [
+				{
+					"caminho": "plugin.json",
+					"tamanho": 804,
+					"sha256": "06eb926a63ea64e86760b29da3ac83e17878bc14d0d030320b3cdacd7c0a3ec0"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "kit",
+			"id": "kit-criar-plugin",
+			"nome": "Kit para criar plugins",
+			"versao": "0.4.0",
+			"descricao": "Skill do Claude Code, instruções do OpenCode, modelo, esquema e verificador.",
+			"caminho": "kit",
+			"arquivos": [
+				{
+					"caminho": ".claude/skills/criar-plugin/SKILL.md",
+					"tamanho": 6567,
+					"sha256": "68b82b6d81eed2a6973a16f7ceb5a335f3872f32530b979f4be5ba3c2c0d1131"
+				},
+				{
+					"caminho": "AGENTS.md",
+					"tamanho": 752,
+					"sha256": "198a552e6d261565e54e60dce0c7d84409847c7ca67bae681bade770a6978116"
+				},
+				{
+					"caminho": "CLAUDE.md",
+					"tamanho": 272,
+					"sha256": "e7bcafd6a0f4d7c49d01cd32275719a0c2f743832641a0356d05e81b3e280edd"
+				},
+				{
+					"caminho": "lh-plugin.mjs",
+					"tamanho": 126992,
+					"sha256": "0e489565095b944bde5f83f6e80303946fe505026d1c0063d2b60e78c9da2761"
+				},
+				{
+					"caminho": "plugin-modelo/fluxos/exemplo.yaml",
+					"tamanho": 809,
+					"sha256": "e879a7dc47261a29c2e67327b5eb0898efea15b5836937c4bbb22ec6cdc8f918"
+				},
+				{
+					"caminho": "plugin-modelo/lh/didatica.md",
+					"tamanho": 532,
+					"sha256": "c878aa2ecc253da758cc6f1c4ad94e239573c99355c6d2fa087657fa44a4a663"
+				},
+				{
+					"caminho": "plugin-modelo/lh/memoria.md",
+					"tamanho": 1379,
+					"sha256": "720fd5c4c93add5686ff9b22c220ab34501b943fa2b383f6811a0af018a2c346"
+				},
+				{
+					"caminho": "plugin-modelo/plugin.json",
+					"tamanho": 950,
+					"sha256": "3eb40463281f1a6b44d210605d17b727668b25f535d70103f43dac235705611c"
+				},
+				{
+					"caminho": "plugin-modelo/widgets/exemplo.html",
+					"tamanho": 1713,
+					"sha256": "df3595854b42449ed75d3bc58fa37b556e0a163a6dcba702459ef9f31b22ed9e"
+				},
+				{
+					"caminho": "plugin.schema.json",
+					"tamanho": 5507,
+					"sha256": "31745af3e10f8d2b5d62499f489573a92bea5944c30213480f0852e5b8ed34be"
+				},
+				{
+					"caminho": "README.md",
+					"tamanho": 1232,
+					"sha256": "685969bab62a1b8ed130e9d800d59d66f1e07ccb3812e5217e849cf93ce7bf7a"
+				}
+			]
+		},
+		{
+			"tipo": "pacote-dados",
+			"id": "anatomia-base",
+			"nome": "Anatomia base — cérebro, corpo e neurônios",
+			"versao": "1.0.0",
+			"descricao": "Modelos 3D usados pelo plugin anatomia-3d: cérebro (Brainder/FreeSurfer), corpo inteiro (BodyParts3D) e neurônios (NeuroMorpho). O plugin baixa sozinho.",
+			"licenca": "CC BY 4.0 (BodyParts3D, NeuroMorpho) e CC BY-SA 3.0 (Brainder)",
+			"plugin": "anatomia-3d",
+			"url": "https://github.com/VictorResearch/TutorForLearning/releases/download/anatomia-base-1.0.0/anatomia-base-1.0.0.zip",
+			"sha256": "57fc38320583ed62a11eec600c8bbf43d3d8905c582e6e748cb00cefab38ec90",
+			"tamanhoMB": 151
+		}
+	]
+}

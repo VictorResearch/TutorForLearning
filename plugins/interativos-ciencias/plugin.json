@@ -1,0 +1,33 @@
+{
+	"id": "interativos-ciencias",
+	"name": "Interativos de ciências",
+	"version": "1.0.0",
+	"description": "Biblioteca de interativos (estilo Brilliant): parábola, derivada e tangente, integral como área, amostragem e intervalo de confiança, regressão, plano inclinado, colisões, lentes, titulação, quadro de Punnett, mitose e Frank-Starling. O tutor usa cada um com um desafio e corrige pelo estado do interativo. Rodam numa caixa de areia: sem rede, sem acesso ao seu computador.",
+	"esquema": 2,
+	"app": ">=0.4 <1",
+	"licenca": "CC-BY-SA-4.0",
+	"autores": ["VictorResearch", "colaboradores do TutorForLearning"],
+	"repositorio": "https://github.com/VictorResearch/TutorForLearning",
+	"permissoes": { "interativos": true },
+	"prompts": {
+		"teacher": ["lh/interativos.md"],
+		"practice": ["lh/interativos.md"]
+	},
+	"interativos": {
+		"enabled": true,
+		"widgets": [
+			{ "id": "funcao-quadratica", "nome": "Parábola (função do 2º grau)", "arquivo": "widgets/funcao-quadratica.html", "area": "Matemática", "descricao": "a, b, c em controles; mostra raízes, vértice, Δ e concavidade. Estado: a, b, c, delta, raizes[], vertice{x,y}.", "parametros": { "a": 1, "b": -2, "c": -3 } },
+			{ "id": "derivada-tangente", "nome": "Derivada e reta tangente", "arquivo": "widgets/derivada-tangente.html", "area": "Matemática", "descricao": "secante virando tangente quando h → 0. Estado: funcao, x0, h, secante, derivada.", "parametros": { "funcao": "quad", "x0": 1, "h": 1.5 } },
+			{ "id": "integral-area", "nome": "Integral como área (Riemann)", "arquivo": "widgets/integral-area.html", "area": "Matemática", "descricao": "retângulos à esquerda/meio/direita; soma × integral exata. Estado: funcao, a, b, n, modo, soma, exata, erro.", "parametros": { "funcao": "quad", "a": 0, "b": 3, "n": 6, "modo": "esq" } },
+			{ "id": "amostragem-ic", "nome": "Amostragem e intervalo de confiança", "arquivo": "widgets/amostragem-ic.html", "area": "Estatística", "descricao": "sorteia amostras e desenha os ICs; quantos contêm μ. Estado: media, dp, n, confianca, margem, amostras, cobertura.", "parametros": { "media": 100, "dp": 15, "n": 25, "confianca": "0.95" } },
+			{ "id": "regressao-linear", "nome": "Regressão linear (mínimos quadrados)", "arquivo": "widgets/regressao-linear.html", "area": "Estatística", "descricao": "ajuste b₀ e b₁ à mão e veja a soma dos quadrados dos resíduos. Estado: inclinacao, intercepto, sqr, sqrMinima.", "parametros": { "inclinacao": 1, "intercepto": 3 } },
+			{ "id": "plano-inclinado", "nome": "Plano inclinado", "arquivo": "widgets/plano-inclinado.html", "area": "Física", "descricao": "ângulo, massa e atrito; forças e aceleração. Estado: angulo, massa, atrito, normal, componente, aceleracao, parado.", "parametros": { "angulo": 30, "massa": 2, "atrito": 0.2 } },
+			{ "id": "colisoes", "nome": "Colisões em 1D", "arquivo": "widgets/colisoes.html", "area": "Física", "descricao": "massas, velocidades e coeficiente de restituição; conservação de momento e energia. Estado: m1, v1, m2, v2, e, v1Depois, v2Depois, energiaPerdida." },
+			{ "id": "lente-convergente", "nome": "Lente convergente", "arquivo": "widgets/lente-convergente.html", "area": "Física", "descricao": "posição do objeto e foco; raios e imagem. Estado: foco, objeto, imagem, aumento, real.", "parametros": { "foco": 6, "objeto": 15 } },
+			{ "id": "titulacao", "nome": "Titulação ácido-base", "arquivo": "widgets/titulacao.html", "area": "Química", "descricao": "curva de pH de HCl com NaOH; ponto de equivalência. Estado: concAcido, volAcido, concBase, volBase, pH, equivalencia." },
+			{ "id": "punnett", "nome": "Quadro de Punnett (dois genes)", "arquivo": "widgets/punnett.html", "area": "Biologia", "descricao": "genótipos dos genitores → proporções de fenótipos. Estado: pai1, pai2, fenotipos{A_B_, A_bb, aaB_, aabb}.", "parametros": { "pai1": "AaBb", "pai2": "AaBb" } },
+			{ "id": "mitose", "nome": "Mitose passo a passo", "arquivo": "widgets/mitose.html", "area": "Biologia", "descricao": "da intérfase à citocinese. Estado: fase (0–5), nome.", "parametros": { "fase": 0 } },
+			{ "id": "frank-starling", "nome": "Frank-Starling", "arquivo": "widgets/frank-starling.html", "area": "Fisiologia", "descricao": "contratilidade, pós-carga e pré-carga → volume sistólico; congestão. Estado: contratilidade, poscarga, precarga, volumeSistolico, congestao.", "parametros": { "contratilidade": 1, "poscarga": 1, "precarga": 10 } }
+		]
+	}
+}

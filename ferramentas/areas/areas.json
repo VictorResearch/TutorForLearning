@@ -1,0 +1,45 @@
+[
+	{
+		"id": "matematica",
+		"name": "Matemática",
+		"description": "Matemática do ensino médio ao início da faculdade (funções, geometria, trigonometria, probabilidade, cálculo) ensinada pelo porquê: prever, mexer no interativo, explicar. Usa as suas notas, os interativos de ciências e a revisão espaçada.",
+		"interativos": ["funcao-quadratica", "derivada-tangente", "integral-area", "amostragem-ic", "regressao-linear"],
+		"didatica": "## Didática de matemática\n\n- **Ordem:** do significado à técnica. Antes da fórmula, o que o objeto É (uma função é uma regra que leva x em y; a derivada é a inclinação; a integral é área acumulada). A fórmula vem como consequência e é derivada junto com ele sempre que der.\n- **Três representações:** cada conceito em palavras, em símbolos e em gráfico. Peça para ele traduzir de uma para outra (\"o que o sinal de a diz sobre o gráfico?\").\n- **Prever antes de calcular:** antes de cada conta, uma estimativa (\"a raiz vai ser positiva ou negativa?\"). Depois compare.\n- **Interativos:** use `interativo` quando um parâmetro muda o objeto (parábola, tangente, Riemann). Desafio com critérios, depois a explicação dele.\n- **Erros típicos a caçar:** sinal na fórmula de Bhaskara, confundir vértice com raiz, achar que Δ < 0 é \"sem resposta\" (é sem raiz real), decorar −b/2a sem saber que é o eixo de simetria.\n- **Questões:** do mais concreto (números) ao mais abstrato (parâmetros), e sempre uma questão de prova (ENEM/vestibular) no fim do tema.\n- **Revisão:** a cada tema, uma recordação livre curta (\"me diga tudo o que sabe sobre a função do 2º grau\") antes de seguir.\n",
+		"exemplo": "Aceite da fase 13: um estudante do ensino médio estuda função do 2º grau só no app — notas próprias, a parábola interativa, questões de interação (\"faça a parábola passar por (2, 5) com vértice em x = 1\") e revisão espaçada."
+	},
+	{
+		"id": "fisica",
+		"name": "Física",
+		"description": "Física do ensino médio (mecânica, energia, ondas, óptica, eletricidade, termodinâmica) pelo modelo: o que entra, o que conserva, o que muda. Interativos de plano inclinado, colisões e lentes.",
+		"interativos": ["plano-inclinado", "colisoes", "lente-convergente"],
+		"didatica": "## Didática de física\n\n- **Modelo antes da conta:** o que é o sistema, quais forças/energias entram, o que se conserva. Só depois a equação. Peça o diagrama de corpo livre antes de qualquer número.\n- **Unidades e ordem de grandeza:** toda resposta com unidade; toda conta com uma estimativa antes (\"uns 5 m/s² ou uns 50?\").\n- **Casos-limite:** pergunte o que acontece com θ = 0 e θ = 90°, sem atrito, massa infinita. Se a fórmula não bate nos limites, está errada.\n- **Interativos:** prever → mexer → explicar. Plano inclinado (forças, atrito estático × cinético), colisões (momento sempre conserva; energia só na elástica), lentes (real/virtual, aumento).\n- **Concepções erradas a caçar:** força na direção do movimento sempre; massa maior cai mais rápido; a normal é sempre igual ao peso; energia \"some\" na colisão inelástica (vira calor/deformação).\n- **Questões:** situação do mundo real primeiro, depois a de prova.\n"
+	},
+	{
+		"id": "quimica",
+		"name": "Química",
+		"description": "Química do ensino médio (estrutura, ligações, estequiometria, soluções, equilíbrio, ácido-base, orgânica) do nível das partículas ao laboratório. Interativo de titulação.",
+		"interativos": ["titulacao"],
+		"didatica": "## Didática de química\n\n- **Três níveis:** cada fenômeno no nível macroscópico (o que se vê), submicroscópico (partículas) e simbólico (equação). Peça para ele passar de um ao outro.\n- **Contagem antes da fórmula:** estequiometria é contar partículas (mol é uma dúzia grande). Peça a proporção antes da regra de três.\n- **Equilíbrio e ácido-base pelo porquê:** quem doa e quem recebe próton; o que desloca o equilíbrio e por quê (Le Chatelier como consequência, não como regra).\n- **Interativo de titulação:** prever o pH no meio da titulação e na equivalência antes de mexer; explicar o salto de pH.\n- **Erros típicos:** confundir concentração com quantidade; achar que pH 7 é sempre a equivalência (só para forte × forte); balancear mexendo nos índices.\n"
+	},
+	{
+		"id": "biologia",
+		"name": "Biologia",
+		"description": "Biologia do ensino médio (célula, genética, evolução, fisiologia, ecologia) pela função e pela evolução: para que serve, como surgiu. Interativos de Punnett, mitose e Frank-Starling.",
+		"interativos": ["punnett", "mitose", "frank-starling"],
+		"didatica": "## Didática de biologia\n\n- **Estrutura → função → evolução:** cada estrutura pelo que faz e por que foi selecionada. Pergunte \"para que serve?\" e \"o que aconteceria sem ela?\".\n- **Processos como sequência causal:** mitose, meiose, síntese proteica, ciclo celular — cada etapa causa a próxima. Recordação livre da sequência, depois as perguntas dos passos que faltaram.\n- **Genética por probabilidade:** o quadro de Punnett é contagem de combinações; peça a proporção antes de montar o quadro, e o heredograma como raciocínio de trás para frente.\n- **Comparar:** anatomia e fisiologia comparadas (respiração de peixe × mamífero × ave), mitose × meiose — o que muda e por quê.\n- **Interativos:** Punnett (prever a proporção), mitose (fase a fase, o que acontece com as cromátides), Frank-Starling (fisiologia cardíaca).\n- **Erros típicos:** confundir cromossomo com cromátide; achar que evolução tem objetivo; dominante = mais frequente.\n"
+	},
+	{
+		"id": "programacao",
+		"name": "Programação",
+		"description": "Lógica e programação (JavaScript e Python) com exercícios que rodam numa caixa de areia dentro do app, corrigidos por testes, e comentário do tutor sobre a diferença para uma solução de referência.",
+		"interativos": [],
+		"didatica": "## Didática de programação\n\n- **Rastrear antes de escrever:** dado um trecho, ele prevê a saída linha a linha (o valor de cada variável). Só depois escreve código.\n- **Problema → casos → código:** antes de programar, ele lista entradas e saídas esperadas, incluindo os casos de borda (vazio, um elemento, negativo). Esses casos viram os testes.\n- **Exercícios:** use `exercicio_codigo` com testes (alguns ocultos para os casos de borda). Quando o resultado chegar, comente: o caso que falhou e por quê, a clareza (nomes, funções pequenas) e a eficiência (quando importar). Guarde a sua solução para você; mostre só depois que ele tentar.\n- **Depurar é ensinar:** diante de um erro, peça a hipótese dele antes de corrigir (\"o que você acha que está errado na linha 4?\").\n- **Progressão:** variáveis → condicionais → laços → funções → listas/objetos → recursão → complexidade.\n"
+	},
+	{
+		"id": "vestibular",
+		"name": "Vestibular e ENEM",
+		"description": "Preparação para o ENEM e vestibulares: competências e habilidades da matriz do ENEM, leitura de enunciado, interpretação de gráficos e textos, redação. Combina com os plugins de cada matéria e com o módulo de provas e cronograma do app.",
+		"interativos": ["funcao-quadratica", "amostragem-ic", "plano-inclinado", "titulacao", "punnett"],
+		"didatica": "## Didática para ENEM e vestibular\n\n- **Questão é leitura:** antes de responder, ele diz o que a questão pede, quais dados importam e quais são distração. Muitas questões do ENEM são de interpretação, não de conteúdo.\n- **Competência por trás da questão:** ligue cada questão à habilidade da matriz (ler gráfico, relacionar informações, propor intervenção). O erro dele é de conteúdo ou de leitura?\n- **Alternativas:** por que cada errada é errada. Treine a eliminação.\n- **Tempo:** ENEM é ~3 min por questão. Em simulados, registre o tempo e as que ele pulou.\n- **Redação:** estrutura (tese, dois argumentos com repertório, proposta de intervenção completa com agente, ação, meio, finalidade e detalhamento) e as 5 competências.\n- **Integração:** use os interativos das matérias quando a questão envolver um modelo (gráfico de função, probabilidade, física, química, genética).\n"
+	}
+]

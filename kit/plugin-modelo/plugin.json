@@ -1,0 +1,31 @@
+{
+	"id": "plugin-modelo",
+	"name": "Plugin modelo",
+	"version": "0.1.0",
+	"description": "Um plugin mínimo para copiar: didática da área, memória do estudante, um fluxograma e um interativo de exemplo. Troque o id, o nome e o texto.",
+	"esquema": 2,
+	"app": ">=0.4 <1",
+	"licenca": "CC-BY-SA-4.0",
+	"autores": ["Seu nome"],
+	"permissoes": { "interativos": true },
+	"prompts": {
+		"prober": ["lh/didatica.md"],
+		"teacher": ["lh/didatica.md"],
+		"practice": ["lh/didatica.md"]
+	},
+	"memory": { "enabled": true, "doctrine": "lh/memoria.md" },
+	"fluxogramas": { "enabled": true, "arquivos": ["fluxos/exemplo.yaml"] },
+	"interativos": {
+		"enabled": true,
+		"widgets": [
+			{
+				"id": "exemplo",
+				"nome": "Reta y = a·x + b",
+				"arquivo": "widgets/exemplo.html",
+				"area": "Exemplo",
+				"descricao": "controles de a e b; desenha a reta. Estado: a, b, raiz (onde corta o eixo x, ou null).",
+				"parametros": { "a": 1, "b": 0 }
+			}
+		]
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"id": "quimica",
+	"name": "Química",
+	"version": "1.0.0",
+	"description": "Química do ensino médio (estrutura, ligações, estequiometria, soluções, equilíbrio, ácido-base, orgânica) do nível das partículas ao laboratório. Interativo de titulação.",
+	"esquema": 2,
+	"app": ">=0.4 <1",
+	"licenca": "CC-BY-SA-4.0",
+	"autores": [
+		"VictorResearch",
+		"colaboradores do TutorForLearning"
+	],
+	"repositorio": "https://github.com/VictorResearch/TutorForLearning",
+	"dependencias": {
+		"interativos-ciencias": "^1.0"
+	},
+	"prompts": {
+		"prober": [
+			"lh/didatica.md"
+		],
+		"teacher": [
+			"lh/didatica.md"
+		],
+		"practice": [
+			"lh/didatica.md"
+		]
+	},
+	"memory": {
+		"enabled": true,
+		"doctrine": "lh/memoria.md"
+	}
+}

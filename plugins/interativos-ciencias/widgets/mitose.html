@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<title>Mitose passo a passo</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 10px; font: 13px/1.4 system-ui, sans-serif; color: #1f2937; background: #fff; }
+#controles { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 6px; }
+.ctl { display: flex; align-items: center; gap: 6px; }
+.ctl label { min-width: 2.5em; font-weight: 600; }
+.ctl input[type=range] { width: 150px; }
+.ctl output { min-width: 3.5em; font-variant-numeric: tabular-nums; }
+.ctl select, .ctl button { font: inherit; padding: 2px 6px; }
+canvas { width: 100%; height: auto; border: 1px solid #e5e7eb; border-radius: 6px; display: block; }
+#saida { margin-top: 6px; font-variant-numeric: tabular-nums; }
+#saida b { color: #111827; }
+</style>
+</head>
+<body>
+<div id="controles"></div>
+<canvas id="tela" width="720" height="380"></canvas>
+<div id="saida"></div>
+<script>
+// ── base comum (embutida em cada widget) ──
+var P = (window.lh && lh.parametros) || {};
+var CTL = {};
+function num(v, padrao) { var n = Number(v); return isFinite(n) ? n : padrao; }
+/** Um controle deslizante; o valor inicial vem dos parâmetros do tutor quando houver. */
+function controle(nome, rotulo, min, max, passo, valor, aoMudar) {
+  var div = document.createElement("div"); div.className = "ctl";
+  var lb = document.createElement("label"); lb.textContent = rotulo;
+  var inp = document.createElement("input"); inp.type = "range"; inp.min = min; inp.max = max; inp.step = passo;
+  inp.value = num(P[nome], valor);
+  var out = document.createElement("output");
+  var casas = String(passo).indexOf(".") >= 0 ? String(passo).split(".")[1].length : 0;
+  function mostrar() { out.textContent = Number(inp.value).toFixed(casas); }
+  inp.addEventListener("input", function () { mostrar(); (aoMudar || desenhar)(); });
+  div.appendChild(lb); div.appendChild(inp); div.appendChild(out);
+  document.getElementById("controles").appendChild(div); mostrar();
+  CTL[nome] = { get: function () { return Number(inp.value); }, set: function (v) { inp.value = v; mostrar(); } };
+  return CTL[nome];
+}
+function escolha(nome, rotulo, opcoes, valor, aoMudar) {
+  var div = document.createElement("div"); div.className = "ctl";
+  var lb = document.createElement("label"); lb.textContent = rotulo;
+  var sel = document.createElement("select");
+  opcoes.forEach(function (o) { var op = document.createElement("option"); op.value = o[0]; op.textContent = o[1]; sel.appendChild(op); });
+  sel.value = P[nome] !== undefined ? String(P[nome]) : valor;
+  sel.addEventListener("change", function () { (aoMudar || desenhar)(); });
+  div.appendChild(lb); div.appendChild(sel); document.getElementById("controles").appendChild(div);
+  CTL[nome] = { get: function () { return sel.value; }, set: function (v) { sel.value = v; } };
+  return CTL[nome];
+}
+function botao(rotulo, acao) {
+  var b = document.createElement("button"); b.textContent = rotulo; b.addEventListener("click", acao);
+  var div = document.createElement("div"); div.className = "ctl"; div.appendChild(b);
+  document.getElementById("controles").appendChild(div);
+}
+var tela = document.getElementById("tela"), g = tela.getContext("2d");
+/** Um sistema de eixos sobre o canvas: X(x), Y(y) em pixels. */
+function eixos(xmin, xmax, ymin, ymax, opc) {
+  opc = opc || {};
+  var W = tela.width, H = tela.height, m = 34;
+  var E = {
+    X: function (x) { return m + (x - xmin) / (xmax - xmin) * (W - 2 * m); },
+    Y: function (y) { return H - m - (y - ymin) / (ymax - ymin) * (H - 2 * m); },
+    xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax
+  };
+  g.clearRect(0, 0, W, H);
+  g.strokeStyle = "#f1f5f9"; g.lineWidth = 1; g.fillStyle = "#64748b"; g.font = "11px system-ui";
+  var px = passoBonito((xmax - xmin) / 10), py = passoBonito((ymax - ymin) / 8);
+  for (var x = Math.ceil(xmin / px) * px; x <= xmax; x += px) { linha(E, x, ymin, x, ymax, "#f1f5f9"); g.fillText(fmt(x), E.X(x) - 8, H - m + 14); }
+  for (var y = Math.ceil(ymin / py) * py; y <= ymax; y += py) { linha(E, xmin, y, xmax, y, "#f1f5f9"); g.fillText(fmt(y), 4, E.Y(y) + 4); }
+  if (ymin <= 0 && ymax >= 0) linha(E, xmin, 0, xmax, 0, "#94a3b8");
+  if (xmin <= 0 && xmax >= 0) linha(E, 0, ymin, 0, ymax, "#94a3b8");
+  if (opc.rx) g.fillText(opc.rx, W - m - 40, H - 6);
+  if (opc.ry) g.fillText(opc.ry, m + 4, 12);
+  return E;
+}
+function passoBonito(s) { var p = Math.pow(10, Math.floor(Math.log10(s))); var f = s / p; return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * p; }
+function fmt(v) { return Math.abs(v) < 1e-9 ? "0" : Math.abs(v) >= 1000 || Math.abs(v) < 0.01 ? v.toExponential(0) : String(+v.toFixed(2)); }
+function linha(E, x1, y1, x2, y2, cor, larg) { g.strokeStyle = cor || "#111"; g.lineWidth = larg || 1; g.beginPath(); g.moveTo(E.X(x1), E.Y(y1)); g.lineTo(E.X(x2), E.Y(y2)); g.stroke(); }
+function curva(E, f, cor, larg) {
+  g.strokeStyle = cor || "#2563eb"; g.lineWidth = larg || 2; g.beginPath(); var ok = false;
+  for (var i = 0; i <= 400; i++) { var x = E.xmin + (E.xmax - E.xmin) * i / 400, y = f(x);
+    if (!isFinite(y) || y > E.ymax * 4 + 10 || y < E.ymin * 4 - 10) { ok = false; continue; }
+    if (ok) g.lineTo(E.X(x), E.Y(y)); else g.moveTo(E.X(x), E.Y(y)); ok = true; }
+  g.stroke();
+}
+function ponto(E, x, y, cor, rot) { g.fillStyle = cor || "#dc2626"; g.beginPath(); g.arc(E.X(x), E.Y(y), 4.5, 0, 7); g.fill(); if (rot) { g.fillStyle = "#111"; g.fillText(rot, E.X(x) + 7, E.Y(y) - 7); } }
+function texto(t, x, y, cor) { g.fillStyle = cor || "#111"; g.font = "12px system-ui"; g.fillText(t, x, y); }
+function saida(html) { document.getElementById("saida").innerHTML = html; }
+function enviar(estado) { if (window.lh) lh.enviar(estado); }
+if (window.lh) lh.aoReceber(function (ps) { for (var k in ps) if (CTL[k]) CTL[k].set(ps[k]); if (typeof desenhar === "function" && document.readyState !== "loading") desenhar(); });
+// ── fim da base ──
+
+// Mitose passo a passo
+var fases = [
+  ["intérfase", "o DNA se duplica (fase S); os cromossomos ainda não estão condensados"],
+  ["prófase", "os cromossomos condensam (duas cromátides-irmãs cada) e o fuso começa a se formar"],
+  ["metáfase", "os cromossomos se alinham na placa equatorial, presos ao fuso pelos cinetocoros"],
+  ["anáfase", "as cromátides-irmãs se separam e vão para polos opostos"],
+  ["telófase", "os núcleos se refazem nos polos e os cromossomos descondensam"],
+  ["citocinese", "o citoplasma se divide: duas células-filhas idênticas à mãe"]
+];
+var f = controle("fase", "fase", 0, 5, 1, 0);
+var cores = ["#2563eb", "#dc2626", "#16a34a", "#f59e0b"];
+function cromossomo(x, y, cor, irmas, ang) {
+  g.save(); g.translate(x, y); g.rotate(ang || 0); g.strokeStyle = cor; g.lineWidth = 6; g.lineCap = "round";
+  g.beginPath(); g.moveTo(-3, -16); g.lineTo(-3, 16); g.stroke();
+  if (irmas) { g.beginPath(); g.moveTo(5, -16); g.lineTo(5, 16); g.stroke(); }
+  g.restore();
+}
+function desenhar() {
+  var i = f.get(), cx = tela.width / 2, cy = tela.height / 2, k;
+  g.clearRect(0, 0, tela.width, tela.height); g.strokeStyle = "#64748b"; g.lineWidth = 2;
+  if (i < 5) { g.beginPath(); g.ellipse(cx, cy, i >= 3 ? 230 : 170, 140, 0, 0, 7); g.stroke(); }
+  else { [-1, 1].forEach(function (s) { g.beginPath(); g.ellipse(cx + s * 130, cy, 120, 120, 0, 0, 7); g.stroke(); }); }
+  if (i === 0) {
+    g.setLineDash([4, 4]); g.beginPath(); g.arc(cx, cy, 70, 0, 7); g.stroke(); g.setLineDash([]);
+    for (k = 0; k < 4; k++) { g.strokeStyle = cores[k]; g.lineWidth = 2; g.beginPath(); for (var t = 0; t < 30; t++) g.lineTo(cx - 40 + t * 3, cy - 30 + k * 18 + 6 * Math.sin(t + k)); g.stroke(); }
+  }
+  if (i === 1) for (k = 0; k < 4; k++) cromossomo(cx - 60 + k * 40, cy - 20 + (k % 2) * 40, cores[k], true, k * 0.5);
+  if (i === 2) for (k = 0; k < 4; k++) {
+    g.strokeStyle = "#cbd5e1"; g.lineWidth = 1; g.beginPath(); g.moveTo(cx - 160, cy); g.lineTo(cx, cy - 75 + k * 50); g.lineTo(cx + 160, cy); g.stroke();
+    cromossomo(cx, cy - 75 + k * 50, cores[k], true, Math.PI / 2);
+  }
+  if (i === 3) for (k = 0; k < 4; k++) { cromossomo(cx - 120, cy - 75 + k * 50, cores[k], false, Math.PI / 2); cromossomo(cx + 120, cy - 75 + k * 50, cores[k], false, Math.PI / 2); }
+  if (i >= 4) [-1, 1].forEach(function (s) {
+    var dx = i === 5 ? 130 : 150; g.strokeStyle = "#64748b"; g.setLineDash([4, 4]); g.beginPath(); g.arc(cx + s * dx, cy, 60, 0, 7); g.stroke(); g.setLineDash([]);
+    for (k = 0; k < 4; k++) cromossomo(cx + s * dx - 30 + k * 20, cy, cores[k], false, 0.3 * k);
+  });
+  texto(fases[i][0].toUpperCase(), 20, 28);
+  saida("<b>" + fases[i][0] + "</b>: " + fases[i][1] + " · 2n = 4: cada célula-filha recebe uma cromátide de cada cromossomo");
+  enviar({ fase: i, nome: fases[i][0] });
+}
+desenhar();
+
+</script>
+</body>
+</html>

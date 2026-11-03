@@ -1,0 +1,63 @@
+id: sepse
+titulo: Sepse e choque séptico — a primeira hora
+area: infectologia / terapia intensiva
+referencia: Surviving Sepsis Campaign 2021 e protocolos do ILAS — revisar a cada atualização
+inicio: suspeita
+nos:
+  - id: suspeita
+    tipo: inicio
+    texto: Suspeita de infecção com sinais de disfunção orgânica
+    vai:
+      - {para: lactato}
+  - id: lactato
+    tipo: exame
+    texto: Lactato e hemoculturas (2 pares) antes do antibiótico
+    nota: micro.sepse-antimicrobianos-culturas-foco
+    porque: as culturas colhidas antes do antibiótico identificam o agente sem atrasar o tratamento; o lactato mede a hipoperfusão e guia a ressuscitação
+    erros_comuns: [Esperar o resultado das culturas para começar o antibiótico]
+    vai:
+      - {para: antibiotico}
+  - id: antibiotico
+    tipo: conduta
+    texto: Antibiótico de amplo espectro na primeira hora
+    nota: micro.sepse-antimicrobianos-culturas-foco
+    porque: cada hora de atraso do antibiótico no choque séptico aumenta a mortalidade
+    erros_comuns: [Antibiótico só depois da tomografia para achar o foco]
+    vai:
+      - {para: hipoperfusao}
+  - id: hipoperfusao
+    tipo: decisao
+    texto: "Hipotensão ou lactato ≥ 4 mmol/L?"
+    nota: micro.sepse-disfuncoes-organicas-alvos
+    porque: hipotensão ou lactato alto indicam hipoperfusão que precisa de volume já
+    vai:
+      - {para: volume, se: "sim"}
+      - {para: reavaliar, se: "não"}
+  - id: volume
+    tipo: conduta
+    texto: Cristaloide 30 mL/kg nas primeiras 3 horas, reavaliando a resposta
+    nota: micro.sepse-disfuncoes-organicas-alvos
+    porque: repõe o volume perdido pela vasodilatação e pelo extravasamento capilar; a reavaliação evita a sobrecarga
+    erros_comuns: [Começar com coloide (albumina) como primeira escolha, Iniciar noradrenalina sem nenhum volume]
+    vai:
+      - {para: pam, se: "depois do volume"}
+  - id: pam
+    tipo: decisao
+    texto: "PAM ≥ 65 mmHg depois do volume?"
+    nota: micro.choque-septico-drogas-vasoativas-conduta
+    porque: a PAM de 65 é o alvo mínimo de perfusão dos órgãos
+    vai:
+      - {para: reavaliar, se: "sim"}
+      - {para: noradrenalina, se: "não"}
+  - id: noradrenalina
+    tipo: conduta
+    texto: Noradrenalina (vasopressor de primeira escolha) para PAM ≥ 65 mmHg — é choque séptico
+    nota: micro.choque-septico-drogas-vasoativas-conduta
+    porque: vasopressor mantendo PAM ≥ 65 com lactato > 2 apesar do volume é a definição de choque séptico; a noradrenalina é a primeira escolha
+    erros_comuns: [Dopamina como primeira escolha, Mais e mais volume sem vasopressor]
+    vai:
+      - {para: reavaliar}
+  - id: reavaliar
+    tipo: desfecho
+    texto: Reavaliar perfusão (lactato em 2–4 h), controlar o foco e ajustar o antibiótico pela cultura
+    nota: micro.sepse-antimicrobianos-culturas-foco

@@ -1,0 +1,34 @@
+id: exemplo
+titulo: Fluxograma de exemplo
+area: exemplo
+referencia: troque pela fonte (diretriz, protocolo, livro)
+inicio: inicio
+nos:
+  - id: inicio
+    tipo: inicio
+    texto: Situação inicial
+    vai:
+      - {para: decisao}
+  - id: decisao
+    tipo: decisao
+    texto: "Pergunta que divide o caminho?"
+    porque: por que esta é a pergunta certa neste ponto
+    vai:
+      - {para: conduta-a, se: "sim"}
+      - {para: conduta-b, se: "não"}
+  - id: conduta-a
+    tipo: conduta
+    texto: Conduta quando sim
+    porque: por que esta conduta
+    erros_comuns: [Um erro comum aqui]
+    vai:
+      - {para: fim}
+  - id: conduta-b
+    tipo: conduta
+    texto: Conduta quando não
+    porque: por que esta conduta
+    vai:
+      - {para: fim}
+  - id: fim
+    tipo: desfecho
+    texto: Desfecho e seguimento

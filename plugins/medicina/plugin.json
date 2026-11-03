@@ -1,0 +1,35 @@
+{
+	"id": "medicina",
+	"name": "Medicina",
+	"version": "1.0.0",
+	"description": "Estudo de medicina das bases à clínica: didática pela espinha causal (do mecanismo à conduta), recordação livre antes de ensinar, memória do estudante entre sessões, revisão por tópico e casos clínicos. Funciona com o banco de notas que você usar (o seu, o de um amigo ou um importado).",
+	"esquema": 2,
+	"app": ">=0.4 <1",
+	"licenca": "CC-BY-SA-4.0",
+	"autores": [
+		"VictorResearch",
+		"colaboradores do TutorForLearning"
+	],
+	"repositorio": "https://github.com/VictorResearch/TutorForLearning",
+	"prompts": {
+		"prober": [
+			"didatica.md",
+			"lh/sondagem.md"
+		],
+		"teacher": [
+			"didatica.md",
+			"lh/ensino.md"
+		],
+		"practice": [
+			"didatica.md"
+		]
+	},
+	"memory": {
+		"enabled": true,
+		"doctrine": "lh/memoria.md"
+	},
+	"cases": {
+		"enabled": true,
+		"doctrine": "lh/casos.md"
+	}
+}
