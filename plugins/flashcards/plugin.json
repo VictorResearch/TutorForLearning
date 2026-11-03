@@ -1,0 +1,16 @@
+{
+	"id": "flashcards",
+	"name": "Flashcards",
+	"version": "1.0.0",
+	"description": "Um Anki dentro do app: baralhos em árvore, revisão espaçada (o algoritmo do Anki), cartões básicos, invertidos, de digitar, de omissão de palavras e de oclusão de imagem, com imagem e áudio. Comentários na revisão viram os seus erros. Importa e exporta .apkg e texto do Anki e a sintaxe do RemNote. O tutor cria cartões no seu estilo.",
+	"esquema": 2,
+	"app": ">=0.5 <1",
+	"licenca": "CC-BY-SA-4.0",
+	"autores": ["VictorResearch", "colaboradores do TutorForLearning"],
+	"repositorio": "https://github.com/VictorResearch/TutorForLearning",
+	"prompts": {
+		"teacher": ["lh/flashcards.md"],
+		"practice": ["lh/flashcards.md"]
+	},
+	"flashcards": { "enabled": true }
+}

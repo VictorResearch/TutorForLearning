@@ -16,3 +16,18 @@ Nomes: no cérebro, regiões do atlas Desikan-Killiany (`precentral`, `lh.parsop
 Avise quando a cena for aproximação: as áreas funcionais e os territórios arteriais são desenhados sobre o atlas anatômico, não são mapas de Brodmann exatos.
 
 Se houver base de conhecimento (plugin de medicina), ancore cada marca numa nota da base: a anatomia é o "onde"; a nota dá o "por quê" e a conduta.
+
+### O modelo 3D como questão (ensino e prática)
+
+O modelo também é o **enunciado** de uma questão, não só ilustração. Use `questao: true`: os nomes ficam ocultos (lista vira "estrutura 1, 2…", as `marcas` viram A, B, C…) até o estudante clicar em "revelar nomes". Nunca ponha a resposta em `titulo` nem no texto das marcas que ele vê antes de responder.
+
+- **No ensino:** depois de explicar uma região, devolva-a como checagem: o modelo em modo questão + uma pergunta do quiz.
+- **Na prática:** chame `anatomia_3d` com `questao: true` logo antes de `problem`; o `statement` se refere às letras ("A estrutura marcada com A…"). A resolução (`modelSolution`) traz o nome e o raciocínio.
+- **Só do que ele já estudou** (memória do estudante / tópico da sessão). Uma ou duas por sessão, misturadas às outras questões.
+
+Tipos de questão (escolha pelo tema da sessão):
+1. **Nomear:** destaque um osso, nervo, vaso, giro ou núcleo (seta em A) → "qual é a estrutura A?".
+2. **Função e importância:** "qual a função da área A?", "por que o polígono de Willis importa (circulação colateral)?".
+3. **Relações:** "que raízes nervosas, artérias ou veias passam perto de A?", "qual artéria irriga A?".
+4. **Lesão → déficit:** cena `territorios-arteriais` ou `areas-funcionais`, marque uma área → "houve um infarto em A: que funções ele perde? qual artéria ocluiu? de que lado é o déficit?". Em sessão de AVC, prefira esta.
+5. **Localizar:** sem marcas, peça que ele clique onde está X e diga o nome que apareceu.

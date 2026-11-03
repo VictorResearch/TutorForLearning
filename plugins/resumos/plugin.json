@@ -1,0 +1,12 @@
+{
+	"id": "resumos",
+	"name": "Resumos em tópicos",
+	"version": "1.0.0",
+	"description": "Resumos como no RemNote e no Obsidian: Markdown em pastas, títulos (#, ##, ###) e listas com recuo que abrem e fecham, links [[entre resumos]], busca. Importa .md e .zip do RemNote, Obsidian e Notion; as linhas escritas como cartão (pergunta >> resposta, termo :: definição, {{omissão}}) viram flashcards.",
+	"esquema": 2,
+	"app": ">=0.5 <1",
+	"licenca": "CC-BY-SA-4.0",
+	"autores": ["VictorResearch", "colaboradores do TutorForLearning"],
+	"repositorio": "https://github.com/VictorResearch/TutorForLearning",
+	"resumos": { "enabled": true }
+}

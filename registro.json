@@ -8,7 +8,7 @@
 			"tipo": "plugin",
 			"id": "anatomia-3d",
 			"nome": "Anatomia 3D",
-			"versao": "1.0.0",
+			"versao": "1.1.0",
 			"descricao": "Modelos 3D interativos: cérebro (giros, lobos, áreas funcionais, núcleos da base, ventrículos), corpo inteiro (artérias — polígono de Willis ramo a ramo —, nervos, órgãos, ossos) e neurônios reais. Sozinho, é um atlas para girar, cortar e anotar (menu Anatomia 3D); com o plugin de medicina, o tutor mostra os modelos na aula com setas, rótulos e cortes. Novos pacotes de modelos podem ser instalados e atualizados.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0 (texto); modelos: CC BY 4.0 (BodyParts3D, NeuroMorpho) e CC BY-SA 3.0 (Brainder)",
@@ -24,13 +24,13 @@
 			"arquivos": [
 				{
 					"caminho": "lh/ensino-anatomia.md",
-					"tamanho": 2074,
-					"sha256": "f3eae4d6a455e2758cf74882620f10d72a8a3c4e1a85886a74965d3bbf713348"
+					"tamanho": 3640,
+					"sha256": "26bd35bf4b3c9932f7a3eea313ee4f08ffccca9c4e7e553b4fc4ab59b547642b"
 				},
 				{
 					"caminho": "plugin.json",
 					"tamanho": 1397,
-					"sha256": "0c4cea065379d86551eb01492b9200da880c118b9b73c5ee01f993173da9773f"
+					"sha256": "9e80360a24709406f0764a31db561f536222c5fa2b6a4b8e2397be94ff23ae31"
 				}
 			],
 			"avisos": 0
@@ -115,9 +115,39 @@
 		},
 		{
 			"tipo": "plugin",
+			"id": "flashcards",
+			"nome": "Flashcards",
+			"versao": "1.0.0",
+			"descricao": "Um Anki dentro do app: baralhos em árvore, revisão espaçada (o algoritmo do Anki), cartões básicos, invertidos, de digitar, de omissão de palavras e de oclusão de imagem, com imagem e áudio. Comentários na revisão viram os seus erros. Importa e exporta .apkg e texto do Anki e a sintaxe do RemNote. O tutor cria cartões no seu estilo.",
+			"app": ">=0.5 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"recursos": [
+				"prompts"
+			],
+			"caminho": "plugins/flashcards",
+			"arquivos": [
+				{
+					"caminho": "lh/flashcards.md",
+					"tamanho": 1311,
+					"sha256": "1189fc3f0f13443994c799f5e7732fe9575b999151d92994ca34dbbca902af50"
+				},
+				{
+					"caminho": "plugin.json",
+					"tamanho": 759,
+					"sha256": "1530b27276c3f783ff2d36cb33e4b42f38ea1817f7346beb27830b765b72f09d"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
 			"id": "fluxogramas",
 			"nome": "Fluxogramas clínicos",
-			"versao": "1.0.0",
+			"versao": "1.1.0",
 			"descricao": "Algoritmos de conduta estudados por recordação livre: você escreve o fluxograma de cabeça, o app compara passo a passo, faz questões só dos ramos que faltaram e pergunta o porquê de cada passo. Cada passo vira item de revisão espaçada. Traz dor torácica aguda, AVC isquêmico agudo e sepse; novos fluxogramas são arquivos YAML.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -148,13 +178,13 @@
 				},
 				{
 					"caminho": "lh/fluxogramas.md",
-					"tamanho": 1557,
-					"sha256": "7f9ad294838e760ea9f2d7bf893bb93dc4c0667ef46f0c9fcd3fe3f3f2d2f8e0"
+					"tamanho": 2409,
+					"sha256": "280eebe52bc34b63f150c4c62656e8bcac8cef984c472e0c2a4fda7c66fab7ee"
 				},
 				{
 					"caminho": "plugin.json",
 					"tamanho": 864,
-					"sha256": "62e32a0feffe67f6aba0d3628cbcaa266b6894e8ace3af076f66be8a3b6f4668"
+					"sha256": "abf6376f3c46f9b386738f3a62b7fdd5c2c0e266c700b6066cc9836133e3c667"
 				}
 			],
 			"avisos": 0
@@ -163,7 +193,7 @@
 			"tipo": "plugin",
 			"id": "interativos-ciencias",
 			"nome": "Interativos de ciências",
-			"versao": "1.0.0",
+			"versao": "1.1.0",
 			"descricao": "Biblioteca de interativos (estilo Brilliant): parábola, derivada e tangente, integral como área, amostragem e intervalo de confiança, regressão, plano inclinado, colisões, lentes, titulação, quadro de Punnett, mitose e Frank-Starling. O tutor usa cada um com um desafio e corrige pelo estado do interativo. Rodam numa caixa de areia: sem rede, sem acesso ao seu computador.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -179,13 +209,13 @@
 			"arquivos": [
 				{
 					"caminho": "lh/interativos.md",
-					"tamanho": 1786,
-					"sha256": "ca612fb2616617750d212d238093e4ee138c286e7154cdb21f71aad1ee1d4b5e"
+					"tamanho": 2204,
+					"sha256": "7d2878ed1ee2eccc53823766d103569fcb1fa954a81545b4a49b80a021ffc35c"
 				},
 				{
 					"caminho": "plugin.json",
 					"tamanho": 4500,
-					"sha256": "0e0d4d3329c24424adddb14b2293a342ae133039d5a7e957864f4ddff22da43d"
+					"sha256": "7858b65cc1b12b9570e754c4f4c9fdea1bc927492902573df7abc3e04466f058"
 				},
 				{
 					"caminho": "widgets/amostragem-ic.html",
@@ -418,6 +448,29 @@
 		},
 		{
 			"tipo": "plugin",
+			"id": "resumos",
+			"nome": "Resumos em tópicos",
+			"versao": "1.0.0",
+			"descricao": "Resumos como no RemNote e no Obsidian: Markdown em pastas, títulos (#, ##, ###) e listas com recuo que abrem e fecham, links [[entre resumos]], busca. Importa .md e .zip do RemNote, Obsidian e Notion; as linhas escritas como cartão (pergunta >> resposta, termo :: definição, {{omissão}}) viram flashcards.",
+			"app": ">=0.5 <1",
+			"licenca": "CC-BY-SA-4.0",
+			"autores": [
+				"VictorResearch",
+				"colaboradores do TutorForLearning"
+			],
+			"recursos": [],
+			"caminho": "plugins/resumos",
+			"arquivos": [
+				{
+					"caminho": "plugin.json",
+					"tamanho": 639,
+					"sha256": "c8ed01b78da977008c07af79a3f857907d785b1256121488133029ca11475279"
+				}
+			],
+			"avisos": 0
+		},
+		{
+			"tipo": "plugin",
 			"id": "vestibular",
 			"nome": "Vestibular e ENEM",
 			"versao": "1.0.0",
@@ -484,7 +537,7 @@
 			"tipo": "kit",
 			"id": "kit-criar-plugin",
 			"nome": "Kit para criar plugins",
-			"versao": "0.4.0",
+			"versao": "0.5.0",
 			"descricao": "Skill do Claude Code, instruções do OpenCode, modelo, esquema e verificador.",
 			"caminho": "kit",
 			"arquivos": [
@@ -510,8 +563,8 @@
 				},
 				{
 					"caminho": "lh-plugin.mjs",
-					"tamanho": 127055,
-					"sha256": "001e649ba55f034bb3a25eb42598fd3562c1921b8822dd63454821ea3a2cccf6"
+					"tamanho": 127405,
+					"sha256": "ab55d4a631e59eb57a74d5b4796ffaab644df353cfd5d5a4f32219ea5fbcacb6"
 				},
 				{
 					"caminho": "plugin-modelo/fluxos/exemplo.yaml",
@@ -540,8 +593,8 @@
 				},
 				{
 					"caminho": "plugin.schema.json",
-					"tamanho": 5507,
-					"sha256": "31745af3e10f8d2b5d62499f489573a92bea5944c30213480f0852e5b8ed34be"
+					"tamanho": 6025,
+					"sha256": "32bef6801e68ce07dbf4a363aff4ec23cb8b8e0513aa3a59ffa8e2cbba729877"
 				}
 			]
 		},

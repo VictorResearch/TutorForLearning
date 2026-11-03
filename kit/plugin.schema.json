@@ -62,6 +62,18 @@
 			"properties": { "enabled": { "type": "boolean" }, "arquivos": { "type": "array", "items": { "type": "string", "pattern": "\\.ya?ml$" } } },
 			"description": "Algoritmos clínicos em YAML (veja plugins/fluxogramas/fluxos/)."
 		},
+		"flashcards": {
+			"type": "object",
+			"required": ["enabled"],
+			"properties": { "enabled": { "type": "boolean" } },
+			"description": "Liga os flashcards do app (baralhos, revisão espaçada, Anki ida e volta) e a ferramenta criar_flashcards do tutor. App >=0.5."
+		},
+		"resumos": {
+			"type": "object",
+			"required": ["enabled"],
+			"properties": { "enabled": { "type": "boolean" } },
+			"description": "Liga os resumos em tópicos (Markdown em pastas, títulos e listas que abrem e fecham). App >=0.5."
+		},
 		"interativos": {
 			"type": "object",
 			"required": ["enabled", "widgets"],

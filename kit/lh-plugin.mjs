@@ -147,6 +147,12 @@ function parsePluginManifest(raw) {
     if (!Array.isArray(f.arquivos) || !f.arquivos.every(isRelative)) return { ok: false, error: "fluxogramas.arquivos must list relative file paths" };
     manifest.fluxogramas = { enabled: f.enabled, arquivos: f.arquivos };
   }
+  for (const k of ["flashcards", "resumos"]) {
+    if (r[k] === void 0) continue;
+    const x = r[k];
+    if (!x || typeof x !== "object" || typeof x.enabled !== "boolean") return { ok: false, error: `${k}.enabled must be a boolean` };
+    manifest[k] = { enabled: x.enabled };
+  }
   if (r.interativos !== void 0) {
     const it = r.interativos;
     if (!it || typeof it !== "object" || typeof it.enabled !== "boolean") return { ok: false, error: "interativos.enabled must be a boolean" };
@@ -2953,7 +2959,9 @@ var RECURSO_DESDE = {
   voz: "0.3.9",
   anatomia: "0.3.9",
   fluxogramas: "0.4.0",
-  interativos: "0.4.0"
+  interativos: "0.4.0",
+  flashcards: "0.5.0",
+  resumos: "0.5.0"
 };
 var PADROES_WIDGET = [
   [/\beval\s*\(/, "eval()"],
@@ -3000,7 +3008,7 @@ function citados(m) {
 function recursosUsados(m) {
   const r = [];
   if (m.prompts && Object.keys(m.prompts).length) r.push("prompts");
-  for (const k of ["base", "memory", "cases", "voz", "anatomia", "fluxogramas", "interativos"]) if (m[k]) r.push(k);
+  for (const k of ["base", "memory", "cases", "voz", "anatomia", "fluxogramas", "interativos", "flashcards", "resumos"]) if (m[k]) r.push(k);
   return r;
 }
 function menorVersaoAdmitida(faixa, ate) {
@@ -3206,7 +3214,7 @@ function manifestosDaPasta(raiz) {
 // package.json
 var package_default = {
   name: "learnharness",
-  version: "0.4.0",
+  version: "0.5.0",
   license: "AGPL-3.0-only",
   author: {
     name: "Amos Blomqvist",

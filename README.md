@@ -7,7 +7,7 @@ Plugins, kit e registro aberto para o **LearnHarness**, um tutor de estudo com I
 ## O que tem aqui
 | Pasta | O que é |
 |---|---|
-| [`plugins/`](plugins) | os plugins publicados: medicina, fluxogramas clínicos, anatomia 3D, voz do tutor, interativos de ciências, matemática, física, química, biologia, programação, vestibular/ENEM |
+| [`plugins/`](plugins) | os plugins publicados: medicina, fluxogramas clínicos, anatomia 3D, voz do tutor, interativos de ciências, matemática, física, química, biologia, programação, vestibular/ENEM, flashcards (Anki), resumos em tópicos (RemNote) |
 | [`kit/`](kit) | o **kit para criar plugins**: skill para o Claude Code, instruções para o OpenCode, modelo pronto, esquema do manifesto e o **verificador** |
 | [`registro.json`](registro.json) | o índice que o app lê para instalar plugins (gerado pelo CI) |
 | [`ferramentas/`](ferramentas) | geradores dos widgets e dos plugins de área |
