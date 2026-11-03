@@ -138,8 +138,8 @@
 				},
 				{
 					"caminho": "fluxos/dor-toracica.yaml",
-					"tamanho": 4635,
-					"sha256": "3a2b92185ab737b1a4c9d8744c77c4c16b9457d2ab70218e3a81412688baacd8"
+					"tamanho": 4548,
+					"sha256": "60a3623d3f3ea584b9f0b70474f50f4cb25352a175ab904a790caaeffc73a70e"
 				},
 				{
 					"caminho": "fluxos/sepse.yaml",
