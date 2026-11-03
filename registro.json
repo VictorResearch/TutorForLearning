@@ -504,9 +504,14 @@
 					"sha256": "e7bcafd6a0f4d7c49d01cd32275719a0c2f743832641a0356d05e81b3e280edd"
 				},
 				{
+					"caminho": "README.md",
+					"tamanho": 1232,
+					"sha256": "685969bab62a1b8ed130e9d800d59d66f1e07ccb3812e5217e849cf93ce7bf7a"
+				},
+				{
 					"caminho": "lh-plugin.mjs",
-					"tamanho": 126992,
-					"sha256": "0e489565095b944bde5f83f6e80303946fe505026d1c0063d2b60e78c9da2761"
+					"tamanho": 127055,
+					"sha256": "001e649ba55f034bb3a25eb42598fd3562c1921b8822dd63454821ea3a2cccf6"
 				},
 				{
 					"caminho": "plugin-modelo/fluxos/exemplo.yaml",
@@ -537,11 +542,6 @@
 					"caminho": "plugin.schema.json",
 					"tamanho": 5507,
 					"sha256": "31745af3e10f8d2b5d62499f489573a92bea5944c30213480f0852e5b8ed34be"
-				},
-				{
-					"caminho": "README.md",
-					"tamanho": 1232,
-					"sha256": "685969bab62a1b8ed130e9d800d59d66f1e07ccb3812e5217e849cf93ce7bf7a"
 				}
 			]
 		},

@@ -3168,7 +3168,7 @@ import path from "node:path";
 function arquivosDaPasta(dir) {
   const out = [];
   const andar = (d, rel) => {
-    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+    for (const e of fs.readdirSync(d, { withFileTypes: true }).sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)) {
       const r = rel ? `${rel}/${e.name}` : e.name;
       if (e.isDirectory()) andar(path.join(d, e.name), r);
       else if (e.isFile()) {
