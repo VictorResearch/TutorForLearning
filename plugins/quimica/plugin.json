@@ -1,7 +1,7 @@
 {
 	"id": "quimica",
 	"name": "Química",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Química do ensino médio (estrutura, ligações, estequiometria, soluções, equilíbrio, ácido-base, orgânica) do nível das partículas ao laboratório. Interativo de titulação.",
 	"esquema": 2,
 	"app": ">=0.4 <1",

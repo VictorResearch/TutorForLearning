@@ -1,7 +1,7 @@
 {
 	"id": "vestibular",
 	"name": "Vestibular e ENEM",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Preparação para o ENEM e vestibulares: competências e habilidades da matriz do ENEM, leitura de enunciado, interpretação de gráficos e textos, redação. Combina com os plugins de cada matéria e com o módulo de provas e cronograma do app.",
 	"esquema": 2,
 	"app": ">=0.4 <1",

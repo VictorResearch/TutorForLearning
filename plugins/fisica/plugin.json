@@ -1,7 +1,7 @@
 {
 	"id": "fisica",
 	"name": "Física",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Física do ensino médio (mecânica, energia, ondas, óptica, eletricidade, termodinâmica) pelo modelo: o que entra, o que conserva, o que muda. Interativos de plano inclinado, colisões e lentes.",
 	"esquema": 2,
 	"app": ">=0.4 <1",

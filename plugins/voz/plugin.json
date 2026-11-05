@@ -1,7 +1,7 @@
 {
 	"id": "voz",
 	"name": "Voz do tutor",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "O tutor lê as respostas em voz alta. Local e grátis com o Piper (o app baixa o programa e as vozes na primeira vez, ~25 MB + 63 MB por voz) ou por API (OpenAI, Google Cloud, ElevenLabs, Azure — a chave vai em Providers). Ajuste velocidade, tom, expressividade e o jeito de falar do tutor.",
 	"esquema": 2,
 	"app": ">=0.4 <1",

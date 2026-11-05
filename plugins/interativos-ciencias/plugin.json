@@ -1,7 +1,7 @@
 {
 	"id": "interativos-ciencias",
 	"name": "Interativos de ciências",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Biblioteca de interativos (estilo Brilliant): parábola, derivada e tangente, integral como área, amostragem e intervalo de confiança, regressão, plano inclinado, colisões, lentes, titulação, quadro de Punnett, mitose e Frank-Starling. O tutor usa cada um com um desafio e corrige pelo estado do interativo. Rodam numa caixa de areia: sem rede, sem acesso ao seu computador.",
 	"esquema": 2,
 	"app": ">=0.4 <1",

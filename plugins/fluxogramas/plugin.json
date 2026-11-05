@@ -1,7 +1,7 @@
 {
 	"id": "fluxogramas",
 	"name": "Fluxogramas clínicos",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Algoritmos de conduta estudados por recordação livre: você escreve o fluxograma de cabeça, o app compara passo a passo, faz questões só dos ramos que faltaram e pergunta o porquê de cada passo. Cada passo vira item de revisão espaçada. Traz dor torácica aguda, AVC isquêmico agudo e sepse; novos fluxogramas são arquivos YAML.",
 	"esquema": 2,
 	"app": ">=0.4 <1",
