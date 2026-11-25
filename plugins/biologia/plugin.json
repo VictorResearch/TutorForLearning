@@ -1,7 +1,7 @@
 {
 	"id": "biologia",
 	"name": "Biologia",
-	"version": "1.0.1",
+	"version": "1.0.0",
 	"description": "Biologia do ensino médio (célula, genética, evolução, fisiologia, ecologia) pela função e pela evolução: para que serve, como surgiu. Interativos de Punnett, mitose e Frank-Starling.",
 	"esquema": 2,
 	"app": ">=0.4 <1",

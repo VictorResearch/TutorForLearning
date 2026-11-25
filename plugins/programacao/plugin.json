@@ -1,7 +1,7 @@
 {
 	"id": "programacao",
 	"name": "Programação",
-	"version": "1.0.1",
+	"version": "1.0.0",
 	"description": "Lógica e programação (JavaScript e Python) com exercícios que rodam numa caixa de areia dentro do app, corrigidos por testes, e comentário do tutor sobre a diferença para uma solução de referência.",
 	"esquema": 2,
 	"app": ">=0.4 <1",

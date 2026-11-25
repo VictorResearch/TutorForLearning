@@ -1,14 +1,14 @@
 {
 	"formato": "lh-registro",
 	"esquema": 1,
-	"atualizado": "2026-11-03",
+	"atualizado": "2026-11-25",
 	"base": "https://raw.githubusercontent.com/VictorResearch/TutorForLearning/main/",
 	"entradas": [
 		{
 			"tipo": "plugin",
 			"id": "anatomia-3d",
 			"nome": "Anatomia 3D",
-			"versao": "1.1.0",
+			"versao": "1.1.1",
 			"descricao": "Modelos 3D interativos: cérebro (giros, lobos, áreas funcionais, núcleos da base, ventrículos), corpo inteiro (artérias — polígono de Willis ramo a ramo —, nervos, órgãos, ossos) e neurônios reais. Sozinho, é um atlas para girar, cortar e anotar (menu Anatomia 3D); com o plugin de medicina, o tutor mostra os modelos na aula com setas, rótulos e cortes. Novos pacotes de modelos podem ser instalados e atualizados.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0 (texto); modelos: CC BY 4.0 (BodyParts3D, NeuroMorpho) e CC BY-SA 3.0 (Brainder)",
@@ -23,6 +23,11 @@
 			"caminho": "plugins/anatomia-3d",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "fe93dbe294565e3dcbfb83777b16f083835415470fe832d2775f9f9d37ba3e92"
+				},
+				{
 					"caminho": "lh/ensino-anatomia.md",
 					"tamanho": 3640,
 					"sha256": "26bd35bf4b3c9932f7a3eea313ee4f08ffccca9c4e7e553b4fc4ab59b547642b"
@@ -30,7 +35,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 1397,
-					"sha256": "9e80360a24709406f0764a31db561f536222c5fa2b6a4b8e2397be94ff23ae31"
+					"sha256": "3af85f278475054e34199903e42f4293df3156149eca189a9bc3c97fede238f7"
 				}
 			],
 			"avisos": 0
@@ -39,7 +44,7 @@
 			"tipo": "plugin",
 			"id": "biologia",
 			"nome": "Biologia",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Biologia do ensino médio (célula, genética, evolução, fisiologia, ecologia) pela função e pela evolução: para que serve, como surgiu. Interativos de Punnett, mitose e Frank-Starling.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -57,6 +62,11 @@
 			"caminho": "plugins/biologia",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "ab32edfcdb58c8a1f2233b3e014fc6e86a6934dd6b44545f25ba726546737ac1"
+				},
+				{
 					"caminho": "lh/didatica.md",
 					"tamanho": 1511,
 					"sha256": "96da5df335f8bfbe9f6781dc5893630e10a1aaa426c7dbad1b050211f0728dec"
@@ -69,7 +79,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 743,
-					"sha256": "f737b2fc9414f36fbe0c8139c750e69d610e807b0f63a06cfa9e6a3601521d93"
+					"sha256": "1e5dfe8c7f2283c33e79f9aa344e8293642f8c059b12ea5014d76f2a872a7e9f"
 				}
 			],
 			"avisos": 0
@@ -78,7 +88,7 @@
 			"tipo": "plugin",
 			"id": "fisica",
 			"nome": "Física",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Física do ensino médio (mecânica, energia, ondas, óptica, eletricidade, termodinâmica) pelo modelo: o que entra, o que conserva, o que muda. Interativos de plano inclinado, colisões e lentes.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -96,6 +106,11 @@
 			"caminho": "plugins/fisica",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "940b74fce0cf2c06aeaaf870447e5bb24e05876178a4c257de4800103ed1cff3"
+				},
+				{
 					"caminho": "lh/didatica.md",
 					"tamanho": 1535,
 					"sha256": "0c99df23c1b91472d9dedede130a412054973bcee2e8a16e70223fb29e92d577"
@@ -108,7 +123,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 746,
-					"sha256": "fbed782f9fab17a0e22a127e68e78c38dde176a6e072152d568794870134af65"
+					"sha256": "39ff15413562d47e673ad6708361847854942fc292493f5e6d6448a8096fe9db"
 				}
 			],
 			"avisos": 0
@@ -117,7 +132,7 @@
 			"tipo": "plugin",
 			"id": "flashcards",
 			"nome": "Flashcards",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Um Anki dentro do app: baralhos em árvore, revisão espaçada (o algoritmo do Anki), cartões básicos, invertidos, de digitar, de omissão de palavras e de oclusão de imagem, com imagem e áudio. Comentários na revisão viram os seus erros. Importa e exporta .apkg e texto do Anki e a sintaxe do RemNote. O tutor cria cartões no seu estilo.",
 			"app": ">=0.5 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -131,6 +146,11 @@
 			"caminho": "plugins/flashcards",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "5a64c540f854b0ea752e4a7563a56a6aa67f5b77eb2f4867126d40791ef84de7"
+				},
+				{
 					"caminho": "lh/flashcards.md",
 					"tamanho": 1311,
 					"sha256": "1189fc3f0f13443994c799f5e7732fe9575b999151d92994ca34dbbca902af50"
@@ -138,7 +158,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 759,
-					"sha256": "1530b27276c3f783ff2d36cb33e4b42f38ea1817f7346beb27830b765b72f09d"
+					"sha256": "108e97348b37f0de8f8b0742d55c21eb631041efd79c2eb96d515a04373d2c35"
 				}
 			],
 			"avisos": 0
@@ -147,7 +167,7 @@
 			"tipo": "plugin",
 			"id": "fluxogramas",
 			"nome": "Fluxogramas clínicos",
-			"versao": "1.1.0",
+			"versao": "1.1.1",
 			"descricao": "Algoritmos de conduta estudados por recordação livre: você escreve o fluxograma de cabeça, o app compara passo a passo, faz questões só dos ramos que faltaram e pergunta o porquê de cada passo. Cada passo vira item de revisão espaçada. Traz dor torácica aguda, AVC isquêmico agudo e sepse; novos fluxogramas são arquivos YAML.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -161,6 +181,11 @@
 			],
 			"caminho": "plugins/fluxogramas",
 			"arquivos": [
+				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "b3f5e15743986c1f441480a2b1523774bf7122dcf5857e0f858feb1a92e859be"
+				},
 				{
 					"caminho": "fluxos/avc-isquemico.yaml",
 					"tamanho": 3352,
@@ -184,7 +209,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 864,
-					"sha256": "abf6376f3c46f9b386738f3a62b7fdd5c2c0e266c700b6066cc9836133e3c667"
+					"sha256": "bd6f80109357e6ee6bccc4b1a53235ec756cc45a2e47914f66d5f8c7e4b1f126"
 				}
 			],
 			"avisos": 0
@@ -193,7 +218,7 @@
 			"tipo": "plugin",
 			"id": "interativos-ciencias",
 			"nome": "Interativos de ciências",
-			"versao": "1.1.0",
+			"versao": "1.1.1",
 			"descricao": "Biblioteca de interativos (estilo Brilliant): parábola, derivada e tangente, integral como área, amostragem e intervalo de confiança, regressão, plano inclinado, colisões, lentes, titulação, quadro de Punnett, mitose e Frank-Starling. O tutor usa cada um com um desafio e corrige pelo estado do interativo. Rodam numa caixa de areia: sem rede, sem acesso ao seu computador.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -208,6 +233,11 @@
 			"caminho": "plugins/interativos-ciencias",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "2ba99141f6bc0461e9ae3ea5408964cf60ab15b199bc708089185df943682219"
+				},
+				{
 					"caminho": "lh/interativos.md",
 					"tamanho": 2204,
 					"sha256": "7d2878ed1ee2eccc53823766d103569fcb1fa954a81545b4a49b80a021ffc35c"
@@ -215,7 +245,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 4500,
-					"sha256": "7858b65cc1b12b9570e754c4f4c9fdea1bc927492902573df7abc3e04466f058"
+					"sha256": "2d55cd8ee3de6b1ed0617375bd845740b79ab24c917c325e1c95fd9bd1948b30"
 				},
 				{
 					"caminho": "widgets/amostragem-ic.html",
@@ -284,7 +314,7 @@
 			"tipo": "plugin",
 			"id": "matematica",
 			"nome": "Matemática",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Matemática do ensino médio ao início da faculdade (funções, geometria, trigonometria, probabilidade, cálculo) ensinada pelo porquê: prever, mexer no interativo, explicar. Usa as suas notas, os interativos de ciências e a revisão espaçada.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -302,6 +332,11 @@
 			"caminho": "plugins/matematica",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "f65e766c9cb9d0de0b62bbb849acc61b2fce404ea1d0f9855b78a765879b75fe"
+				},
+				{
 					"caminho": "lh/didatica.md",
 					"tamanho": 2186,
 					"sha256": "352887fab7db42db4bfae9f43d6d20321befd4a33b40afafac2424f4467fb0a6"
@@ -314,7 +349,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 805,
-					"sha256": "f97c5229046d156a0becd7a45ae59bd2d6c331faec756e676218b43086d68719"
+					"sha256": "de5977be9e9589cb35e0a36bec0fcced7590b9188d56dc922d376dcff71540ad"
 				}
 			],
 			"avisos": 0
@@ -323,7 +358,7 @@
 			"tipo": "plugin",
 			"id": "medicina",
 			"nome": "Medicina",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Estudo de medicina das bases à clínica: didática pela espinha causal (do mecanismo à conduta), recordação livre antes de ensinar, memória do estudante entre sessões, revisão por tópico e casos clínicos. Funciona com o banco de notas que você usar (o seu, o de um amigo ou um importado).",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -338,6 +373,11 @@
 			],
 			"caminho": "plugins/medicina",
 			"arquivos": [
+				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "d99438af62b7c40f17d0f78f354ccb0fd19aa6d88c7846ca1cf7e90899478f5b"
+				},
 				{
 					"caminho": "didatica.md",
 					"tamanho": 3779,
@@ -366,7 +406,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 888,
-					"sha256": "64477d6983d8c44b9a2b7d2fcaaa7a4f583c6bd99a5f8ce914b4dcc695f0413d"
+					"sha256": "f8be1e35fc4af18943080b39e7e8fa864bc1151cafddc76f814b0e06bd6da265"
 				}
 			],
 			"avisos": 0
@@ -375,7 +415,7 @@
 			"tipo": "plugin",
 			"id": "programacao",
 			"nome": "Programação",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Lógica e programação (JavaScript e Python) com exercícios que rodam numa caixa de areia dentro do app, corrigidos por testes, e comentário do tutor sobre a diferença para uma solução de referência.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -390,6 +430,11 @@
 			"caminho": "plugins/programacao",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "63a5e6d516b061c9deb17833e228cbc914328250beb09be2f1cac86f320e5e7f"
+				},
+				{
 					"caminho": "lh/didatica.md",
 					"tamanho": 921,
 					"sha256": "ca3f232d135666f4a32824228d731c023edb1bfd041550e353ca62bd64e9c32f"
@@ -402,7 +447,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 710,
-					"sha256": "46048cf185213b9cdf2921f5c14b303235ce4e516fe2bbb17b4ea5d0cc6db0ba"
+					"sha256": "1f044ec58518bde67cc8d148f846d1d8a0c84e1a4e2214660fbe588413369e41"
 				}
 			],
 			"avisos": 0
@@ -411,7 +456,7 @@
 			"tipo": "plugin",
 			"id": "quimica",
 			"nome": "Química",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Química do ensino médio (estrutura, ligações, estequiometria, soluções, equilíbrio, ácido-base, orgânica) do nível das partículas ao laboratório. Interativo de titulação.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -429,6 +474,11 @@
 			"caminho": "plugins/quimica",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "ab81c1f1a259655d9de37b3ab4f5c7ac8b4ec50cd5f034f36b7966f9b132b778"
+				},
+				{
 					"caminho": "lh/didatica.md",
 					"tamanho": 1012,
 					"sha256": "56314927daaeade620a3e018506c96f09d8f7d7c8b14667be90707ead8797d07"
@@ -441,7 +491,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 735,
-					"sha256": "abf96725310fa23f810d285ca967dd108460266c00a673f785e43cf97371bf96"
+					"sha256": "bfbd068bd091ca2ba28e06eff96eefa2c4bb12f313ffbedb4fe85f05a190d19d"
 				}
 			],
 			"avisos": 0
@@ -450,7 +500,7 @@
 			"tipo": "plugin",
 			"id": "resumos",
 			"nome": "Resumos em tópicos",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Resumos como no RemNote e no Obsidian: Markdown em pastas, títulos (#, ##, ###) e listas com recuo que abrem e fecham, links [[entre resumos]], busca. Importa .md e .zip do RemNote, Obsidian e Notion; as linhas escritas como cartão (pergunta >> resposta, termo :: definição, {{omissão}}) viram flashcards.",
 			"app": ">=0.5 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -462,9 +512,14 @@
 			"caminho": "plugins/resumos",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "2328c9fd17c7d9595f6ee75d3b53cc49b4386d71910ce32fa71ec946e0e9217b"
+				},
+				{
 					"caminho": "plugin.json",
 					"tamanho": 639,
-					"sha256": "c8ed01b78da977008c07af79a3f857907d785b1256121488133029ca11475279"
+					"sha256": "ee86c24d5876530b593541c84c35ad3d912634f935b164cfbe34cf92d0daea94"
 				}
 			],
 			"avisos": 0
@@ -473,7 +528,7 @@
 			"tipo": "plugin",
 			"id": "vestibular",
 			"nome": "Vestibular e ENEM",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "Preparação para o ENEM e vestibulares: competências e habilidades da matriz do ENEM, leitura de enunciado, interpretação de gráficos e textos, redação. Combina com os plugins de cada matéria e com o módulo de provas e cronograma do app.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -491,6 +546,11 @@
 			"caminho": "plugins/vestibular",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "c289f28441a28574bdcbfdd4b2eaffd33b498c1172e40b0587cb448a4438b77c"
+				},
+				{
 					"caminho": "lh/didatica.md",
 					"tamanho": 1895,
 					"sha256": "5eb87c169f2e8133051f5e5b86b3bd12e624f5db14327f0152b86f87ec72f0c8"
@@ -503,7 +563,7 @@
 				{
 					"caminho": "plugin.json",
 					"tamanho": 809,
-					"sha256": "019b6ebd84bb56ad7ac94510ab2a7541d7c97436f0e11ff95a71be23a7ff9a63"
+					"sha256": "9fcd3b12d1a13052b217db3fcd799e3f1b4cf05ce4228e0ca7cfc6d1795c838c"
 				}
 			],
 			"avisos": 0
@@ -512,7 +572,7 @@
 			"tipo": "plugin",
 			"id": "voz",
 			"nome": "Voz do tutor",
-			"versao": "1.0.0",
+			"versao": "1.0.1",
 			"descricao": "O tutor lê as respostas em voz alta. Local e grátis com o Piper (o app baixa o programa e as vozes na primeira vez, ~25 MB + 63 MB por voz) ou por API (OpenAI, Google Cloud, ElevenLabs, Azure — a chave vai em Providers). Ajuste velocidade, tom, expressividade e o jeito de falar do tutor.",
 			"app": ">=0.4 <1",
 			"licenca": "CC-BY-SA-4.0",
@@ -526,9 +586,14 @@
 			"caminho": "plugins/voz",
 			"arquivos": [
 				{
+					"caminho": "assinatura.json",
+					"tamanho": 239,
+					"sha256": "7626e9764152192fb73d950f3d99812a9414b2c8299144dfd4c4079aa4e62e3e"
+				},
+				{
 					"caminho": "plugin.json",
 					"tamanho": 804,
-					"sha256": "06eb926a63ea64e86760b29da3ac83e17878bc14d0d030320b3cdacd7c0a3ec0"
+					"sha256": "33f96e0e47a63bf856a4ac687c37c98577c45ef051a34bfe6335b0a03407a3fd"
 				}
 			],
 			"avisos": 0

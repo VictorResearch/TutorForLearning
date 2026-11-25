@@ -1,0 +1,7 @@
+{
+	"nome": "LearnHarness",
+	"icone": "https://raw.githubusercontent.com/VictorResearch/TutorForLearning/main/marca/icone.png",
+	"aviso": "Versão modificada do LearnHarness, por Victor Gonçalves Soares.",
+	"original": { "nome": "LearnHarness", "url": "https://github.com/amosblomqvist/learnharness" },
+	"fork": { "autor": "Victor Gonçalves Soares", "url": "https://github.com/VictorResearch/TutorForLearning" }
+}

@@ -4,6 +4,13 @@
 
 Plugins, kit e registro aberto para o **LearnHarness**, um tutor de estudo com IA que roda no seu computador. Ele ensina pelo porquê, lembra do que você errou e agenda a revisão. Este repositório é o **ecossistema aberto**: qualquer pessoa pode usar, melhorar e criar plugins.
 
+> **Versão modificada.** Este é um fork do [LearnHarness](https://github.com/amosblomqvist/learnharness) (de Amos Blomqvist, AGPL-3.0), **modificado por Victor Gonçalves Soares**. Não é afiliado ao autor original.
+> *Modified version: a fork of [LearnHarness](https://github.com/amosblomqvist/learnharness) (AGPL-3.0), modified by Victor Gonçalves Soares; not affiliated with the original author.*
+
+## Baixar o app
+Os instaladores (Windows, Mac Apple Silicon e Intel, Android) ficam em [**Releases**](https://github.com/VictorResearch/TutorForLearning/releases/latest).
+Nome e ícone do app são editáveis sem reinstalar: veja [`marca/`](marca).
+
 ## O que tem aqui
 | Pasta | O que é |
 |---|---|
