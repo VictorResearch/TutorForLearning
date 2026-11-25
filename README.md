@@ -8,7 +8,7 @@ Plugins, kit e registro aberto para o **LearnHarness**, um tutor de estudo com I
 > *Modified version: a fork of [LearnHarness](https://github.com/amosblomqvist/learnharness) (AGPL-3.0), modified by Victor Gonçalves Soares; not affiliated with the original author.*
 
 ## Baixar o app
-Os instaladores (Windows, Mac Apple Silicon e Intel, Android) ficam em [**Releases**](https://github.com/VictorResearch/TutorForLearning/releases/latest).
+Os instaladores (Windows, Mac Apple Silicon e Intel, Android) ficam em [**Releases**](https://github.com/VictorResearch/TutorForLearning/releases).
 Nome e ícone do app são editáveis sem reinstalar: veja [`marca/`](marca).
 
 ## O que tem aqui
