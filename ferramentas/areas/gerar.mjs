@@ -21,7 +21,7 @@ for (const a of areas) {
 	const manifesto = {
 		id: a.id,
 		name: a.name,
-		version: "1.0.0",
+		version: a.version ?? "1.0.1",
 		description: a.description,
 		esquema: 2,
 		app: ">=0.4 <1",
