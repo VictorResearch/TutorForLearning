@@ -11,5 +11,5 @@ Os apps instalados pegam a mudança na próxima vez que abrirem (o GitHub pode l
 novo). Sem internet, vale a última marca guardada no aparelho.
 
 O que só muda num instalador novo (o sistema grava no momento da instalação): o nome do atalho no Menu Iniciar, na Dock
-e na tela inicial do Android, e o nome do arquivo do instalador. A pasta de dados continua "LearnHarness" de propósito,
+e na tela inicial do Android, e o nome do arquivo do instalador. A pasta de dados continua "LearnHarness" (nome antigo) de propósito,
 para nenhuma instalação perder os estudos.

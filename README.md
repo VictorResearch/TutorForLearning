@@ -1,10 +1,10 @@
-# TutorForLearning — plugins abertos do LearnHarness
+# TutorForLearning — Ypatia e seus plugins abertos
 
 *[English below](#english)*
 
-Plugins, kit e registro aberto para o **LearnHarness**, um tutor de estudo com IA que roda no seu computador. Ele ensina pelo porquê, lembra do que você errou e agenda a revisão. Este repositório é o **ecossistema aberto**: qualquer pessoa pode usar, melhorar e criar plugins.
+Plugins, kit e registro aberto para o **Ypatia**, um tutor de estudo com IA que roda no seu computador. Ele ensina pelo porquê, lembra do que você errou e agenda a revisão. Este repositório é o **ecossistema aberto**: qualquer pessoa pode usar, melhorar e criar plugins.
 
-> **Versão modificada.** Este é um fork do [LearnHarness](https://github.com/amosblomqvist/learnharness) (de Amos Blomqvist, AGPL-3.0), **modificado por Victor Gonçalves Soares**. Não é afiliado ao autor original.
+> **Versão modificada.** O **Ypatia** é um fork do [LearnHarness](https://github.com/amosblomqvist/learnharness) (de Amos Blomqvist, AGPL-3.0), **modificado por Victor Gonçalves Soares**. Não é afiliado ao autor original.
 > *Modified version: a fork of [LearnHarness](https://github.com/amosblomqvist/learnharness) (AGPL-3.0), modified by Victor Gonçalves Soares; not affiliated with the original author.*
 
 ## Baixar o app
@@ -45,7 +45,7 @@ O LearnHarness original é de [amosblomqvist/learnharness](https://github.com/am
 
 ## English
 
-Open plugins, a plugin kit and an open registry for **LearnHarness**, an AI study tutor that runs on your computer: it teaches through the *why*, remembers what you got wrong and schedules reviews.
+Open plugins, a plugin kit and an open registry for **Ypatia** (a modified LearnHarness), an AI study tutor that runs on your computer: it teaches through the *why*, remembers what you got wrong and schedules reviews.
 
 - **Use a plugin:** in the app, Settings → Community → Open registry → Install. Each file is checked against its sha256 and the plugin passes the verifier before it is installed.
 - **Create a plugin:** use the [`kit/`](kit) folder with Claude Code (skill `criar-plugin`) or OpenCode (`AGENTS.md`). Run `node kit/lh-plugin.mjs verificar <folder>`; a plugin is ready only when it says `PASSOU` (passed).
